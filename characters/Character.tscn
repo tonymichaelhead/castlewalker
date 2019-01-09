@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
-[ext_resource path="res://characters/npc/body.png" type="Texture" id=2]
+[ext_resource path="res://characters/body.png" type="Texture" id=2]
 [ext_resource path="res://characters/shadow.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 12.4577, 3.46118 )
 
-[node name="Character" type="KinematicBody2D"]
+[node name="Character" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -40,8 +40,12 @@ playback/speed = 1.0
 
 [node name="Body" type="Sprite" parent="Pivot" index="0"]
 
-position = Vector2( -0.328921, -57.1394 )
+position = Vector2( -1.16106, -23.5763 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
+vframes = 4
+hframes = 4
+_sections_unfolded = [ "Animation", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
@@ -52,7 +56,8 @@ shape = SubResource( 1 )
 
 self_modulate = Color( 1, 1, 1, 0.497255 )
 show_behind_parent = true
-position = Vector2( -0.336151, -0.0885391 )
+position = Vector2( -0.0797042, -0.0885391 )
+scale = Vector2( 0.487105, 0.200539 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Visibility" ]
 
