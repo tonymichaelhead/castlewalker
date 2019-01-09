@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://characters/character.gd" type="Script" id=1]
+[ext_resource path="res://characters/npc/body.png" type="Texture" id=2]
+[ext_resource path="res://characters/shadow.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 22.8391, 6.71005 )
+
+[node name="Character" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+blend_times = [  ]
+
+[node name="Tween" type="Tween" parent="." index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Pivot" type="Position2D" parent="." index="2"]
+
+[node name="Body" type="Sprite" parent="Pivot" index="0"]
+
+position = Vector2( -0.328921, -57.1394 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( -0.254669, -5.09348 )
+shape = SubResource( 1 )
+
+[node name="Shadow" type="Sprite" parent="." index="4"]
+
+self_modulate = Color( 1, 1, 1, 0.497255 )
+show_behind_parent = true
+position = Vector2( -0.336151, -0.0885391 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+
