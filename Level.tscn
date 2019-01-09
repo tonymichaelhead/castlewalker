@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=1]
+
+[node name="Level" type="Node2D" index="0"]
+
+[node name="YSort" type="YSort" parent="." index="0"]
+
+sort_enabled = true
+_sections_unfolded = [ "Material", "Sort" ]
+
+[node name="Player" parent="YSort" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 493.832, 284.639 )
+
+

@@ -4,14 +4,14 @@
 [ext_resource path="res://characters/player/player.gd" type="Script" id=2]
 [ext_resource path="res://characters/player/body.png" type="Texture" id=3]
 
-[node name="Player" index="0" instance=ExtResource( 1 )]
+[node name="Player" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
 [node name="Body" parent="Pivot" index="0"]
 
 position = Vector2( -1.83094, -20.0896 )
-scale = Vector2( 1.53426, 1.4563 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 vframes = 4
 hframes = 4

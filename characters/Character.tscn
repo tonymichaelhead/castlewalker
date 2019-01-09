@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 22.8391, 6.71005 )
+extents = Vector2( 12.4577, 3.46118 )
 
 [node name="Character" type="KinematicBody2D"]
 
@@ -16,7 +16,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
