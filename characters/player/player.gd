@@ -25,8 +25,8 @@ func _physics_process(delta):
 	
 	
 	# For the DirectionVisualizer (Maybe won't use)
-	if input_direction and input_direction != last_move_direction:
-		emit_signal('direction', input_direction)
+#	if input_direction and input_direction != last_move_direction:
+#		emit_signal('direction', input_direction)
 		
 	# Run
 	max_speed = MAX_RUN_SPEED if Input.is_action_pressed('run') else MAX_WALK_SPEED

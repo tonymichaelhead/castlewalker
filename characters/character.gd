@@ -8,8 +8,8 @@ var input_direction = Vector2()
 var last_move_direction = Vector2(1, 0)
 var sprite_direction = "down"
 
-const MAX_WALK_SPEED = 400
-const MAX_RUN_SPEED = 700
+const MAX_WALK_SPEED = 250
+const MAX_RUN_SPEED = 500
 
 var speed = 0.0
 var max_speed = 0.0
