@@ -99,7 +99,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1.16106, -23.5763 ) ]
+"values": [ Vector2( 0.22585, -19.9704 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
@@ -396,7 +396,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1.16106, -23.5763 ) ]
+"values": [ Vector2( -1.16106, -18.5834 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
@@ -681,7 +681,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1.16106, -23.5763 ) ]
+"values": [ Vector2( 0.780606, -23.2989 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
@@ -784,7 +784,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1.16106, -23.5763 ) ]
+"values": [ Vector2( 0.503224, -21.6346 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
@@ -905,12 +905,12 @@ playback/speed = 1.0
 
 [node name="Body" type="Sprite" parent="Pivot" index="0"]
 
-position = Vector2( -1.16106, -23.5763 )
+position = Vector2( 0.503224, -21.6346 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 8
+frame = 6
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]

@@ -8,8 +8,8 @@ var input_direction = Vector2()
 var last_move_direction = Vector2(1, 0)
 var sprite_direction = "down"
 
-const MAX_WALK_SPEED = 250
-const MAX_RUN_SPEED = 500
+const MAX_WALK_SPEED = 100
+const MAX_RUN_SPEED = 200
 
 var speed = 0.0
 var max_speed = 0.0
@@ -19,28 +19,37 @@ var velocity = Vector2()
 enum STATES { IDLE, MOVE }
 var state = null
 
+
 func _ready():
 	_change_state(IDLE)
+
 
 func _change_state(new_state):
 	# Initialize the new state
 	match new_state:
 		IDLE:
-			animation_switch("idle")
+			pass
 		MOVE:
-			animation_switch("walk")
+			pass
 			
 	state = new_state
 	
+	
 func _physics_process(delta):
 	update_direction()
+	sprite_direction_loop()
 	
-	move()
 	if state == IDLE:
-		pass
+		if input_direction:
+			_change_state(MOVE)
+		else:
+			animation_switch("idle")
 	elif state == MOVE:
-		pass
-	
+		move()
+		animation_switch("walk")
+		if not input_direction:
+			_change_state(IDLE)
+
 	
 #	For reference, for handling collisions manually
 #	var motion = input_direction.normalized() * speed * delta
@@ -54,6 +63,7 @@ func update_direction():
 	if input_direction:
 		last_move_direction = input_direction
 		
+		
 func move():
 	if input_direction:
 		if speed != max_speed:
@@ -64,13 +74,6 @@ func move():
 	velocity = input_direction.normalized() * speed
 	move_and_slide(velocity)
 	
-	sprite_direction_loop()
-	
-#	if input_direction != Vector2(0, 0):
-	if input_direction:
-		_change_state(MOVE)
-	else:
-		_change_state(IDLE)
 	
 func sprite_direction_loop():
 	match input_direction:
@@ -82,6 +85,7 @@ func sprite_direction_loop():
 			sprite_direction = "up"
 		Vector2(0, 1):
 			sprite_direction = "down"
+
 
 func animation_switch(animation):
 	var new_animation = str(animation, "_", sprite_direction)
