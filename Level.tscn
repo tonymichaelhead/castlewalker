@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=2]
 
 [node name="Level" type="Node2D"]
 
@@ -11,6 +12,13 @@ _sections_unfolded = [ "Material", "Sort" ]
 
 [node name="Player" parent="YSort" index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 493.832, 284.639 )
+position = Vector2( 492.832, 284.639 )
+z_index = 1
+collision_mask = 1
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
+
+[node name="StaticBody2D" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 255.904, 315.118 )
 
 

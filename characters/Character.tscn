@@ -868,10 +868,10 @@ extents = Vector2( 12.4577, 3.46118 )
 
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 10
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -901,7 +901,13 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Pivot" type="Position2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( -0.254669, -5.09348 )
+shape = SubResource( 10 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Pivot" type="Position2D" parent="." index="3"]
 
 [node name="Body" type="Sprite" parent="Pivot" index="0"]
 
@@ -912,12 +918,6 @@ vframes = 4
 hframes = 4
 frame = 6
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-
-visible = false
-position = Vector2( -0.254669, -5.09348 )
-shape = SubResource( 10 )
 
 [node name="Shadow" type="Sprite" parent="." index="4"]
 
