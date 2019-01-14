@@ -53,7 +53,6 @@ func _change_state(new_state):
 			air_speed = speed
 			max_air_speed = max_speed
 			air_velocity = velocity
-			animation_switch("idle")
 			
 			$Tween.interpolate_method(self, '_animate_jump_height', 0, 1, JUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Tween.start()
@@ -88,6 +87,8 @@ func _physics_process(delta):
 				_change_state(BUMP)
 	elif state == JUMP:
 		jump(delta)
+		
+		animation_switch("idle")
 
 
 func update_direction():
