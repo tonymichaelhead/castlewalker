@@ -2,6 +2,13 @@ extends 'res://characters/character.gd'
 
 signal direction_changed
 
+func _input(event):
+	if event.is_action_pressed('jump'):
+		if not state in [IDLE, MOVE]:
+			return
+		_change_state(JUMP)
+
+
 func _physics_process(delta):
 	input_direction = Vector2()
 	

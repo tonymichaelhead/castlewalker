@@ -15,7 +15,6 @@ _sections_unfolded = [ "Material", "Sort" ]
 position = Vector2( 492.832, 284.639 )
 z_index = 1
 collision_mask = 1
-_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
 
 [node name="StaticBody2D" parent="." index="1" instance=ExtResource( 2 )]
 

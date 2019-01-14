@@ -15,14 +15,26 @@ const BUMP_DURATION = 0.2
 const BUMP_DISTANCE = 30
 const MAX_BUMP_HEIGHT = 20
 
+const JUMP_DURATION = 0.6
+const MAX_JUMP_HEIGHT = 65
+
+var AIR_ACCELERATION = 1000
+var AIR_DECCELERATION = 2000
+var AIR_STEERING_POWER = 50
+
 var height = 0.0 setget set_height
+
+var max_air_speed = 0.0
+var air_speed = 0.0
+var air_velocity = Vector2()
+var air_steering = Vector2()
 
 var speed = 0.0
 var max_speed = 0.0
 
 var velocity = Vector2()
 
-enum STATES { IDLE, MOVE, BUMP }
+enum STATES { IDLE, MOVE, BUMP, JUMP }
 var state = null
 
 
@@ -37,6 +49,14 @@ func _change_state(new_state):
 			pass
 		MOVE:
 			pass
+		JUMP:
+			air_speed = speed
+			max_air_speed = max_speed
+			air_velocity = velocity
+			animation_switch("idle")
+			
+			$Tween.interpolate_method(self, '_animate_jump_height', 0, 1, JUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
+			$Tween.start()
 		BUMP:
 			$AnimationPlayer.stop()
 			
@@ -66,13 +86,15 @@ func _physics_process(delta):
 			var collider = collision_info.collider
 			if max_speed == MAX_RUN_SPEED and collider.is_in_group('environment'):
 				_change_state(BUMP)
+	elif state == JUMP:
+		jump(delta)
 
 
 func update_direction():
 	if input_direction:
 		last_move_direction = input_direction
-		
-		
+
+
 func move(delta):
 	if input_direction:
 		if speed != max_speed:
@@ -85,8 +107,22 @@ func move(delta):
 	
 	var slide_count = get_slide_count()
 	return get_slide_collision(slide_count -1) if slide_count else null
+
+
+func jump(delta):
+	if input_direction:
+		air_speed += AIR_ACCELERATION * delta
+	else:
+		air_speed -= AIR_DECCELERATION * delta
+	air_speed = clamp(air_speed, 0, max_air_speed)
 	
+	var target_velocity = air_speed * input_direction.normalized()
+	var steering_velocity = (target_velocity - air_velocity).normalized() * AIR_STEERING_POWER
+	air_velocity += steering_velocity
 	
+	move_and_slide(air_velocity)
+
+
 func update_sprite_direction():
 	match input_direction:
 		Vector2(-1, 0):
@@ -108,6 +144,8 @@ func animation_switch(animation):
 func _on_Tween_tween_completed(object, key):
 	if key == ":_animate_bump_height":
 		_change_state(IDLE)
+	if key == ":_animate_jump_height":
+		_change_state(IDLE)
 	
 
 func set_height(value):
@@ -117,3 +155,10 @@ func set_height(value):
 	
 func _animate_bump_height(progress):
 	self.height = - pow(sin(progress * PI), 0.5) * MAX_BUMP_HEIGHT
+
+
+func _animate_jump_height(progress):
+	self.height = - pow(sin(progress * PI), 0.7) * MAX_JUMP_HEIGHT
+	var shadow_scale = (-sin(progress * PI)) * 0.5 + 0.48710 # TODO: instead of hardcoding current shadow scale, get current
+	$Shadow.scale = Vector2(shadow_scale, shadow_scale)
+

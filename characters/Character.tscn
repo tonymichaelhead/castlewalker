@@ -926,6 +926,6 @@ show_behind_parent = true
 position = Vector2( -0.0797042, -0.0885391 )
 scale = Vector2( 0.487105, 0.200539 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 
