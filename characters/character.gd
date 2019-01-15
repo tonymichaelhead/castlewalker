@@ -50,9 +50,10 @@ func _change_state(new_state):
 		MOVE:
 			pass
 		JUMP:
+#			TODO: Fix, jump from idle can still accelerate
 			air_speed = speed
 			max_air_speed = max_speed
-			air_velocity = velocity
+			air_velocity = velocity if input_direction else Vector2()
 			
 			$Tween.interpolate_method(self, '_animate_jump_height', 0, 1, JUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Tween.start()
@@ -149,17 +150,16 @@ func _on_Tween_tween_completed(object, key):
 		_change_state(IDLE)
 	
 
-func set_height(value):
-	$Pivot.position.y = value
+func set_height(value):	
 	height = value
-	
+	$Pivot.position.y = - value
+	var shadow_scale = 0.48710 - value / MAX_JUMP_HEIGHT * 0.4
+	$Shadow.scale = Vector2(shadow_scale, shadow_scale)
 	
 func _animate_bump_height(progress):
-	self.height = - pow(sin(progress * PI), 0.5) * MAX_BUMP_HEIGHT
+	self.height = pow(sin(progress * PI), 0.5) * MAX_BUMP_HEIGHT
 
 
 func _animate_jump_height(progress):
-	self.height = - pow(sin(progress * PI), 0.7) * MAX_JUMP_HEIGHT
-	var shadow_scale = (-sin(progress * PI)) * 0.5 + 0.48710 # TODO: instead of hardcoding current shadow scale, get current
-	$Shadow.scale = Vector2(shadow_scale, shadow_scale)
+	self.height = pow(sin(progress * PI), 0.7) * MAX_JUMP_HEIGHT
 
