@@ -50,7 +50,6 @@ func _change_state(new_state):
 		MOVE:
 			pass
 		JUMP:
-#			TODO: Fix, jump from idle can still accelerate
 			air_speed = speed
 			max_air_speed = max_speed
 			air_velocity = velocity if input_direction else Vector2()
