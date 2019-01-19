@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://characters/body.png" type="Texture" id=2]
 [ext_resource path="res://characters/shadow.png" type="Texture" id=3]
+[ext_resource path="res://characters/weapon/weapon-pivot.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -864,7 +865,7 @@ tracks/6/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 12.4577, 3.46118 )
 
-[node name="Character" type="KinematicBody2D" index="0"]
+[node name="Character" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -872,6 +873,7 @@ collision_mask = 10
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+weapon_path = ""
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -901,13 +903,15 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="Health" type="Node" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
 position = Vector2( -0.254669, -5.09348 )
 shape = SubResource( 10 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Pivot" type="Position2D" parent="." index="3"]
+[node name="Pivot" type="Position2D" parent="." index="4"]
 
 [node name="Body" type="Sprite" parent="Pivot" index="0"]
 
@@ -919,7 +923,7 @@ hframes = 4
 frame = 6
 _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 
-[node name="Shadow" type="Sprite" parent="." index="4"]
+[node name="Shadow" type="Sprite" parent="." index="5"]
 
 self_modulate = Color( 1, 1, 1, 0.497255 )
 show_behind_parent = true
@@ -927,5 +931,14 @@ position = Vector2( -0.0797042, -0.0885391 )
 scale = Vector2( 0.487105, 0.200539 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="WeaponPivot" type="Position2D" parent="." index="6"]
+
+position = Vector2( 0, -13.0369 )
+script = ExtResource( 4 )
+
+[node name="WeaponSpawn" type="Position2D" parent="WeaponPivot" index="0"]
+
+position = Vector2( 28.2929, 0 )
 
 

@@ -34,15 +34,32 @@ var max_speed = 0.0
 
 var velocity = Vector2()
 
-enum STATES { IDLE, MOVE, BUMP, JUMP }
+enum STATES { IDLE, MOVE, BUMP, JUMP, ATTACK }
 var state = null
+
+export(String) var weapon_path = ""
+var weapon = null
 
 
 func _ready():
 	_change_state(IDLE)
 	$Tween.connect('tween_completed', self, '_on_Tween_tween_completed')
+	
+	if not weapon_path:
+		return
+	var weapon_node = load(weapon_path).instance()
+#
+	$WeaponPivot/WeaponSpawn.add_child(weapon_node)
+	weapon = $WeaponPivot/WeaponSpawn.get_child(0)
+	weapon.connect("attack_finished", self, "_on_Weapon_attack_finished")
+	
 
 func _change_state(new_state):
+	print(new_state)
+	match state:
+		ATTACK:
+			set_physics_process(true)
+	
 	# Initialize the new state
 	match new_state:
 		IDLE:
@@ -62,6 +79,14 @@ func _change_state(new_state):
 			$Tween.interpolate_property(self, 'position', position, position + BUMP_DISTANCE * -last_move_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Tween.interpolate_method(self, '_animate_bump_height', 0, 1, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Tween.start()
+		ATTACK:
+			if not weapon:
+				_change_state(IDLE)
+				return
+			
+			weapon.attack()
+			$AnimationPlayer.play("idle")
+			set_physics_process(false)
 	state = new_state
 	
 	
@@ -162,3 +187,6 @@ func _animate_bump_height(progress):
 func _animate_jump_height(progress):
 	self.height = pow(sin(progress * PI), 0.7) * MAX_JUMP_HEIGHT
 
+
+func _on_Weapon_attack_finished():
+	_change_state(IDLE)
