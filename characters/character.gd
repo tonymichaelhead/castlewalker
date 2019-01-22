@@ -42,20 +42,20 @@ var weapon = null
 
 
 func _ready():
+	$Health.connect("health_changed", self, "_on_Health_health_changed")
 	_change_state(IDLE)
 	$Tween.connect('tween_completed', self, '_on_Tween_tween_completed')
 	
 	if not weapon_path:
 		return
 	var weapon_node = load(weapon_path).instance()
-#
+
 	$WeaponPivot/WeaponSpawn.add_child(weapon_node)
 	weapon = $WeaponPivot/WeaponSpawn.get_child(0)
 	weapon.connect("attack_finished", self, "_on_Weapon_attack_finished")
 	
 
 func _change_state(new_state):
-	print(new_state)
 	match state:
 		ATTACK:
 			set_physics_process(true)
@@ -190,3 +190,9 @@ func _animate_jump_height(progress):
 
 func _on_Weapon_attack_finished():
 	_change_state(IDLE)
+	
+
+func _on_Health_health_changed(new_health):
+	_change_state(IDLE)
+	if new_health == 0:
+		queue_free()
