@@ -8,6 +8,10 @@ var input_direction = Vector2()
 var last_move_direction = Vector2(1, 0)
 var sprite_direction = "down"
 
+var knockback_direction = Vector2()
+export(float) var knockback_force = 10.0
+const KNOCKBACK_DURATION = 0.4
+
 const MAX_WALK_SPEED = 200
 const MAX_RUN_SPEED = 350
 
@@ -34,7 +38,7 @@ var max_speed = 0.0
 
 var velocity = Vector2()
 
-enum STATES { IDLE, MOVE, BUMP, JUMP, ATTACK }
+enum STATES { IDLE, MOVE, BUMP, JUMP, ATTACK, STAGGER, DIE, DEATH }
 var state = null
 
 export(String) var weapon_path = ""
@@ -44,6 +48,7 @@ var weapon = null
 func _ready():
 	$Health.connect("health_changed", self, "_on_Health_health_changed")
 	_change_state(IDLE)
+	$AnimationPlayer.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
 	$Tween.connect('tween_completed', self, '_on_Tween_tween_completed')
 	
 	if not weapon_path:
@@ -59,6 +64,8 @@ func _change_state(new_state):
 	match state:
 		ATTACK:
 			set_physics_process(true)
+		DIE:
+			queue_free()
 	
 	# Initialize the new state
 	match new_state:
@@ -87,6 +94,14 @@ func _change_state(new_state):
 			weapon.attack()
 			$AnimationPlayer.play("idle")
 			set_physics_process(false)
+		STAGGER:
+			$AnimationPlayer.play('stagger')
+			$Tween.interpolate_property(self, 'position', position, position + knockback_force * knockback_direction, KNOCKBACK_DURATION, Tween.TRANS_QUART, Tween.EASE_OUT)
+			$Tween.start()
+		DIE:
+			set_process_input(false)
+			$AnimationPlayer.play('die')
+			$CollisionShape2D.disabled = true
 	state = new_state
 	
 	
@@ -119,6 +134,7 @@ func _physics_process(delta):
 func take_damage(source, amount):
 	if self.is_a_parent_of(source):
 		return
+	knockback_direction = (global_position - source.global_position).normalized()
 	$Health.take_damage(amount)
 
 
@@ -200,6 +216,11 @@ func _on_Weapon_attack_finished():
 	
 
 func _on_Health_health_changed(new_health):
-	_change_state(IDLE)
 	if new_health == 0:
 		queue_free()
+	else:
+		_change_state(STAGGER)
+		
+
+func _on_AnimationPlayer_animation_finished():
+	pass
