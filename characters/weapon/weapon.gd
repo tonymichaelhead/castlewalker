@@ -5,9 +5,11 @@ signal attack_finished
 enum STATES { IDLE, ATTACK }
 var state = null
 
-var hit_bodies = []
+var power = 2
+var hit_objects = []
 
 func _ready():
+	self.connect("body_entered", self, "_on_body_entered")
 	$AnimationPlayer.connect('animation_finished', self, "_on_AnimationPlayer_animation_finished")
 	_change_state(IDLE)
 	
@@ -15,29 +17,28 @@ func _ready():
 func _change_state(new_state):
 	match state:
 		ATTACK:
-			hit_bodies = []
+			hit_objects = []
 	match new_state:
 		IDLE:
-			set_physics_process(false)
+			monitoring = false
 			$AnimationPlayer.play('idle')
 		ATTACK:
-			set_physics_process(true)
+			monitoring = true
 			$AnimationPlayer.play('attack_straight')
 	state = new_state
 
 
-func _physics_process(delta):
-	var bodies = get_overlapping_bodies()
-	for body in bodies:
-		var body_id = body.get_rid().get_id()
-		if body_id in hit_bodies:
-			continue
-		if body.has_node("Health") and not body.is_a_parent_of(self):
-			hit_bodies.append(body_id)
-			body.get_node("Health").take_damage(1)
-
 func attack():
 	_change_state(ATTACK)
+	
+
+func _on_body_entered(body):
+	print('attacked')
+	if body.get_rid().get_id() in hit_objects or body.is_a_parent_of(self):
+		return
+	hit_objects.append(body.get_rid().get_id())
+	body.take_damage(self, power)
+
 
 func _on_AnimationPlayer_animation_finished(name):
 	if name == "idle":

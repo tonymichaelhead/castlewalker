@@ -13,8 +13,9 @@ _sections_unfolded = [ "Material", "Sort" ]
 
 [node name="Player" parent="YSort" index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 492.832, 284.639 )
+position = Vector2( 495.224, 282.247 )
 z_index = 1
+collision_layer = 1
 collision_mask = 1
 
 [node name="StaticBody2D" parent="." index="1" instance=ExtResource( 2 )]
@@ -24,13 +25,19 @@ position = Vector2( 255.904, 315.118 )
 [node name="Dummy" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 667.772, 381.671 )
+collision_layer = 1
+collision_mask = 10
 
 [node name="Dummy2" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 389.294, 380.539 )
+collision_layer = 1
+collision_mask = 10
 
 [node name="Dummy3" parent="." index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 1159.14, 190.196 )
+collision_layer = 1
+collision_mask = 10
 
 

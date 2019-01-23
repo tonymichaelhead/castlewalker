@@ -116,6 +116,12 @@ func _physics_process(delta):
 		animation_switch("idle")
 
 
+func take_damage(source, amount):
+	if self.is_a_parent_of(source):
+		return
+	$Health.take_damage(amount)
+
+
 func update_direction():
 	if input_direction:
 		last_move_direction = input_direction
@@ -180,6 +186,7 @@ func set_height(value):
 	var shadow_scale = 0.48710 - value / MAX_JUMP_HEIGHT * 0.4
 	$Shadow.scale = Vector2(shadow_scale, shadow_scale)
 	
+
 func _animate_bump_height(progress):
 	self.height = pow(sin(progress * PI), 0.5) * MAX_BUMP_HEIGHT
 
