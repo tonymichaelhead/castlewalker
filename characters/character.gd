@@ -38,7 +38,7 @@ var max_speed = 0.0
 
 var velocity = Vector2()
 
-enum STATES { IDLE, MOVE, BUMP, JUMP, ATTACK, STAGGER, DIE, DEATH }
+enum STATES { IDLE, MOVE, BUMP, JUMP, ATTACK, STAGGER, DIE, DEAD }
 var state = null
 
 export(String) var weapon_path = ""
@@ -222,5 +222,6 @@ func _on_Health_health_changed(new_health):
 		_change_state(STAGGER)
 		
 
-func _on_AnimationPlayer_animation_finished():
-	pass
+func _on_AnimationPlayer_animation_finished(name):
+	if name == 'die':
+		_change_state(DEAD)
