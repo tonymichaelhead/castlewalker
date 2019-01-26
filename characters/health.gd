@@ -1,6 +1,7 @@
 extends Node
 
 signal health_changed
+signal health_depleted
 
 var health = 0
 export(int) var max_health = 5
@@ -24,6 +25,8 @@ func take_damage(amount):
 	health -= amount
 	if health < 0:
 		health = 0
+	if health == 0:
+		emit_signal("health_depleted")
 	emit_signal("health_changed", health)
 	print("%s took %s damage. Health: %s/%s" % [get_path(), amount, health, max_health])
 	

@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="InterfaceHook" type="RemoteTransform2D"]
+
+position = Vector2( 1, -96 )
+remote_path = NodePath("")
+use_global_coordinates = true
+update_position = true
+update_rotation = false
+update_scale = false
+_sections_unfolded = [ "Transform", "Update" ]
+
+
