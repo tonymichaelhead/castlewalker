@@ -19,6 +19,12 @@ func _change_status(new_status):
 	status = new_status
 
 
+func heal(amount):
+	health += amount
+	health = min(health, max_health)
+	emit_signal("health_changed", health)
+
+
 func take_damage(amount):
 	if status == INVINCIBLE:
 		return
@@ -30,10 +36,3 @@ func take_damage(amount):
 	emit_signal("health_changed", health)
 	print("%s took %s damage. Health: %s/%s" % [get_path(), amount, health, max_health])
 	
-	
-func recover_heath(amount):
-	health += amount
-	if health > max_health:
-		health = max_health
-	emit_signal("health_changed", health)
-	print("%s recovered %s health. Health: %s/%s" % [get_path(), amount, health, max_health])

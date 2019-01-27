@@ -65,6 +65,7 @@ func _change_state(new_state):
 		ATTACK:
 			set_physics_process(true)
 		DIE:
+			print('change state die')
 			queue_free()
 	
 	# Initialize the new state
@@ -99,9 +100,9 @@ func _change_state(new_state):
 			$Tween.interpolate_property(self, 'position', position, position + knockback_force * knockback_direction, KNOCKBACK_DURATION, Tween.TRANS_QUART, Tween.EASE_OUT)
 			$Tween.start()
 		DIE:
+			$CollisionShape2D.disabled = true
 			set_process_input(false)
 			$AnimationPlayer.play('die')
-			$CollisionShape2D.disabled = true
 	state = new_state
 	
 	
@@ -217,7 +218,7 @@ func _on_Weapon_attack_finished():
 
 func _on_Health_health_changed(new_health):
 	if new_health == 0:
-		queue_free()
+		_change_state(DIE)
 	else:
 		_change_state(STAGGER)
 		
