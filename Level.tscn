@@ -8,7 +8,7 @@
 [ext_resource path="res://interface/LifebarBuilder.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interface/player_gui/life_bar/Lifebar.tscn" type="PackedScene" id=7]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]

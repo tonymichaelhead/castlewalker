@@ -1,9 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://interface/player_gui/life_bar/bg.png" type="Texture" id=1]
-[ext_resource path="res://interface/player_gui/life_bar/Lifebar.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/life_bar/lifebar.gd" type="Script" id=2]
 [ext_resource path="res://interface/player_gui/life_bar/fill.png" type="Texture" id=3]
-[ext_resource path="res://interface/player_gui/life_bar/TextureProgress.gd" type="Script" id=4]
+[ext_resource path="res://interface/player_gui/life_bar/texture-progress.gd" type="Script" id=4]
+
+
 
 [node name="Lifebar" type="TextureRect"]
 
