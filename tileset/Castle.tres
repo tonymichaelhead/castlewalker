@@ -9,48 +9,40 @@ extents = Vector2( 12.9998, 14.4841 )
 
 [resource]
 
-0/name = "Castle2"
+0/name = "cobblestone"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 224, 352, 32, 32 )
+0/region = Rect2( 192, 320, 160, 96 )
 0/is_autotile = false
-0/occluder_offset = Vector2( 16, 16 )
-0/navigation_offset = Vector2( 16, 16 )
+0/occluder_offset = Vector2( 80, 48 )
+0/navigation_offset = Vector2( 80, 48 )
 0/shapes = [  ]
-1/name = "cobblestone"
+1/name = "grass"
 1/texture = ExtResource( 1 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 192, 320, 160, 96 )
-1/is_autotile = true
-1/autotile/bitmask_mode = 0
-1/autotile/icon_coordinate = Vector2( 1, 1 )
-1/autotile/tile_size = Vector2( 32, 32 )
-1/autotile/spacing = 0
-1/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 1 ), 325, Vector2( 1, 2 ), 5, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 1, Vector2( 3, 0 ), 69, Vector2( 3, 1 ), 321, Vector2( 4, 0 ), 261, Vector2( 4, 1 ), 324 ]
-1/autotile/occluder_map = [  ]
-1/autotile/navpoly_map = [  ]
-1/autotile/priority_map = [  ]
-1/occluder_offset = Vector2( 80, 48 )
-1/navigation_offset = Vector2( 80, 48 )
+1/region = Rect2( 0, 352, 32, 32 )
+1/is_autotile = false
+1/occluder_offset = Vector2( 16, 16 )
+1/navigation_offset = Vector2( 16, 16 )
 1/shapes = [  ]
-2/name = "grass"
+2/name = "grass2"
 2/texture = ExtResource( 1 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 352, 32, 32 )
+2/region = Rect2( 0, 352, 96, 160 )
 2/is_autotile = true
 2/autotile/bitmask_mode = 0
 2/autotile/icon_coordinate = Vector2( 0, 0 )
 2/autotile/tile_size = Vector2( 32, 32 )
 2/autotile/spacing = 0
-2/autotile/bitmask_flags = [  ]
+2/autotile/bitmask_flags = [ Vector2( 0, 0 ), 325, Vector2( 0, 2 ), 256, Vector2( 0, 3 ), 4, Vector2( 1, 1 ), 260, Vector2( 1, 2 ), 320, Vector2( 1, 3 ), 5, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 64, Vector2( 2, 3 ), 1 ]
 2/autotile/occluder_map = [  ]
 2/autotile/navpoly_map = [  ]
 2/autotile/priority_map = [  ]
-2/occluder_offset = Vector2( 16, 16 )
-2/navigation_offset = Vector2( 16, 16 )
+2/occluder_offset = Vector2( 48, 80 )
+2/navigation_offset = Vector2( 48, 80 )
 2/shapes = [  ]
 3/name = "crate"
 3/texture = ExtResource( 1 )
@@ -66,5 +58,5 @@ extents = Vector2( 12.9998, 14.4841 )
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
-_sections_unfolded = [ "2", "3" ]
+_sections_unfolded = [ "2" ]
 

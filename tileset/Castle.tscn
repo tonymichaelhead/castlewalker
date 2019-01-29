@@ -7,17 +7,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 12.9998, 14.4841 )
 
-[node name="Castle" type="Node"]
+[node name="Castle" type="Node" index="0"]
 
-[node name="Castle2" type="Sprite" parent="." index="0"]
-
-position = Vector2( 16, 16 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 224, 352, 32, 32 )
-_sections_unfolded = [ "Region" ]
-
-[node name="cobblestone" type="Sprite" parent="." index="1"]
+[node name="cobblestone" type="Sprite" parent="." index="0"]
 
 position = Vector2( 80, 96 )
 texture = ExtResource( 1 )
@@ -25,18 +17,27 @@ region_enabled = true
 region_rect = Rect2( 192, 320, 160, 96 )
 _sections_unfolded = [ "Region" ]
 
-[node name="grass" type="Sprite" parent="." index="2"]
+[node name="grass" type="Sprite" parent="." index="1"]
 
-position = Vector2( 64, 16 )
+position = Vector2( 16, 16 )
 scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 352, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
+[node name="grass2" type="Sprite" parent="." index="2"]
+
+position = Vector2( 224, 128 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 352, 96, 160 )
+_sections_unfolded = [ "Region" ]
+
 [node name="crate" type="Sprite" parent="." index="3"]
 
-position = Vector2( 112, 16 )
+position = Vector2( 64, 16 )
 scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 region_enabled = true
