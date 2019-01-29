@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tileset/Castle2.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12.9998, 14.4841 )
+
+[node name="Castle" type="Node"]
+
+[node name="Castle2" type="Sprite" parent="." index="0"]
+
+position = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 352, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="cobblestone" type="Sprite" parent="." index="1"]
+
+position = Vector2( 80, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 320, 160, 96 )
+_sections_unfolded = [ "Region" ]
+
+[node name="grass" type="Sprite" parent="." index="2"]
+
+position = Vector2( 64, 16 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 352, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="crate" type="Sprite" parent="." index="3"]
+
+position = Vector2( 112, 16 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 480, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="crate" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="crate/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+
