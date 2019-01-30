@@ -21,6 +21,10 @@ window/size/height=720
 window/size/test_width=1280
 window/size/test_height=720
 
+[editor_plugins]
+
+enabled=PoolStringArray( "vnen.tiled_importer" )
+
 [global]
 
 gen_mipmaps=false
@@ -96,3 +100,7 @@ simulate_player_damage=[ Object(InputEventKey,"resource_local_to_scene":false,"r
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+
+[tiled_importer]
+
+enable_json_format=true

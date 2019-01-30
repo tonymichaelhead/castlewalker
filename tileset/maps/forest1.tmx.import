@@ -1,0 +1,22 @@
+[remap]
+
+importer="vnen.tiled_importer"
+type="PackedScene"
+path="res://.import/forest1.tmx-41c248c29eb60ec87b5dae1b365887dc.scn"
+
+[deps]
+
+source_file="res://tileset/maps/forest1.tmx"
+dest_files=[ "res://.import/forest1.tmx-41c248c29eb60ec87b5dae1b365887dc.scn" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+uv_clip=true
+image_flags=7
+collision_layer=1
+embed_internal_images=false
+save_tiled_properties=false
+add_background=true
+post_import_script=""
