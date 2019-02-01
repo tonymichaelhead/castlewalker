@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://level.gd" type="Script" id=1]
-[ext_resource path="res://tileset/maps/begins.tmx" type="PackedScene" id=2]
+[ext_resource path="res://tileset/maps/Test.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tileset/Castle.tres" type="TileSet" id=3]
 [ext_resource path="res://interface/Pause.tscn" type="PackedScene" id=4]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=5]
@@ -15,7 +15,9 @@
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="begins" parent="." index="0" instance=ExtResource( 2 )]
+[node name="test" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 260, 470 )
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
