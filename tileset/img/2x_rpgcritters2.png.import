@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rpgcritters2.png-0756777234b11dbd2ffcb8e9c08c8f3c.stex"
+path="res://.import/2x_rpgcritters2.png-0554bc24376fb10c16c5479ff5f163fc.stex"
 
 [deps]
 
-source_file="res://tileset/img/rpgcritters2.png"
-dest_files=[ "res://.import/rpgcritters2.png-0756777234b11dbd2ffcb8e9c08c8f3c.stex" ]
+source_file="res://tileset/img/2x_rpgcritters2.png"
+dest_files=[ "res://.import/2x_rpgcritters2.png-0554bc24376fb10c16c5479ff5f163fc.stex" ]
 
 [params]
 
