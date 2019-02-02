@@ -3,7 +3,7 @@ extends 'res://characters/character.gd'
 signal direction_changed
 
 func _input(event):
-	if event.is_action_pressed('attack') and state != ATTACK:
+	if event.is_action_pressed('attack') and not state in [ATTACK, JUMP]:
 		_change_state(ATTACK)
 		
 	if event.is_action_pressed('jump'):

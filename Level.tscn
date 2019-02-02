@@ -10,8 +10,8 @@
 [ext_resource path="res://tileset/maps/Test.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tileset/Castle.tres" type="TileSet" id=9]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=11]
-[ext_resource path="res://characters/monster/Dummy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://characters/monster/Dummy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=12]
 [ext_resource path="res://interface/LifebarBuilder.tscn" type="PackedScene" id=13]
 [ext_resource path="res://interface/player_gui/life_bar/Lifebar.tscn" type="PackedScene" id=14]
 
@@ -22,6 +22,7 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Menu" type="CanvasLayer" parent="." index="0"]
 
+editor/display_folded = true
 layer = 100
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -37,6 +38,8 @@ visible = false
 visible = false
 
 [node name="Inventory" parent="." index="1" instance=ExtResource( 4 )]
+
+editor/display_folded = true
 
 [node name="HealthPotion" parent="Inventory" index="0" instance=ExtResource( 5 )]
 
@@ -81,31 +84,36 @@ position = Vector2( 495.224, 282.247 )
 z_index = 1
 collision_layer = 1
 collision_mask = 1
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="StaticBody2D" parent="." index="5" instance=ExtResource( 11 )]
+[node name="Dummy" parent="YSort" index="1" instance=ExtResource( 11 )]
+
+position = Vector2( 667.772, 381.671 )
+z_index = 1
+collision_layer = 1
+collision_mask = 10
+
+[node name="Dummy2" parent="YSort" index="2" instance=ExtResource( 11 )]
+
+position = Vector2( 389.294, 380.539 )
+z_index = 1
+collision_layer = 1
+collision_mask = 10
+
+[node name="Dummy3" parent="YSort" index="3" instance=ExtResource( 11 )]
+
+position = Vector2( 1159.14, 190.196 )
+z_index = 1
+collision_layer = 1
+collision_mask = 10
+
+[node name="StaticBody2D" parent="." index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 255.904, 315.118 )
 
-[node name="Dummy" parent="." index="6" instance=ExtResource( 12 )]
+[node name="Interface" type="CanvasLayer" parent="." index="6"]
 
-position = Vector2( 667.772, 381.671 )
-collision_layer = 1
-collision_mask = 10
-
-[node name="Dummy2" parent="." index="7" instance=ExtResource( 12 )]
-
-position = Vector2( 389.294, 380.539 )
-collision_layer = 1
-collision_mask = 10
-
-[node name="Dummy3" parent="." index="8" instance=ExtResource( 12 )]
-
-position = Vector2( 1159.14, 190.196 )
-collision_layer = 1
-collision_mask = 10
-
-[node name="Interface" type="CanvasLayer" parent="." index="9"]
-
+editor/display_folded = true
 layer = 50
 offset = Vector2( 0, 0 )
 rotation = 0.0
