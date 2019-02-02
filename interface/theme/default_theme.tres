@@ -4,7 +4,7 @@
 [ext_resource path="res://interface/theme/button/normal.stylebox" type="StyleBox" id=2]
 [ext_resource path="res://interface/theme/button/pressed.stylebox" type="StyleBox" id=3]
 [ext_resource path="res://interface/fonts/montserrat_black_48.tres" type="DynamicFont" id=4]
-[ext_resource path="res://interface/theme/font/default_font_comfortaa.tres" type="DynamicFont" id=5]
+[ext_resource path="res://interface/theme/fonts/default_font_comfortaa.tres" type="DynamicFont" id=5]
 
 [resource]
 

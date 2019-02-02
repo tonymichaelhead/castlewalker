@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://inventory/items/Item.gd" type="Script" id=1]
+[ext_resource path="res://interface/icons/purse.png" type="Texture" id=2]
+
+[node name="Item" type="Node"]
+
+script = ExtResource( 1 )
+icon = ExtResource( 2 )
+display_name = "Item"
+description = "The base item class"
+price = 0
+usable = true
+unique = false
+amount = 1
+
+

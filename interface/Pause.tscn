@@ -17,7 +17,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause", "Rect" ]
+_sections_unfolded = [ "Pause", "Theme" ]
 __meta__ = {
 "_edit_horizontal_guides_": [ -278.378 ]
 }

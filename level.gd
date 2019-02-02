@@ -6,3 +6,6 @@ func _input(event):
 	if event.is_action_pressed("simulate_player_heal"):
 		$YSort/Player/Health.heal(1)
 
+func _ready():
+	$Menu/ItemsMenu.initialize($Inventory)
+
