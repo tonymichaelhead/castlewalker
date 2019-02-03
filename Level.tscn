@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://level.gd" type="Script" id=1]
 [ext_resource path="res://interface/inventory/ItemsMenu.tscn" type="PackedScene" id=2]
@@ -15,6 +15,11 @@
 [ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=13]
 [ext_resource path="res://interface/LifebarBuilder.tscn" type="PackedScene" id=14]
 [ext_resource path="res://interface/player_gui/life_bar/Lifebar.tscn" type="PackedScene" id=15]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 114.018
 
 [node name="Level" type="Node"]
 
@@ -88,30 +93,14 @@ collision_mask = 1
 
 [node name="Dummy" parent="YSort" index="1" instance=ExtResource( 11 )]
 
-position = Vector2( 667.772, 381.671 )
+position = Vector2( 860, 280 )
 z_index = 1
 collision_layer = 1
 collision_mask = 10
 
-[node name="Dummy2" parent="YSort" index="2" instance=ExtResource( 11 )]
-
-position = Vector2( 389.294, 380.539 )
-z_index = 1
-collision_layer = 1
-collision_mask = 10
-
-[node name="Dummy3" parent="YSort" index="3" instance=ExtResource( 11 )]
-
-position = Vector2( 1159.14, 190.196 )
-z_index = 1
-collision_layer = 1
-collision_mask = 10
-
-[node name="Monster" parent="YSort" index="4" instance=ExtResource( 12 )]
+[node name="Monster" parent="YSort" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 120, 600 )
-max_follow_speed = 200.0
-max_roam_speed = 125.0
 
 [node name="StaticBody2D" parent="." index="5" instance=ExtResource( 13 )]
 
@@ -150,5 +139,25 @@ margin_right = 396.0
 margin_bottom = 53.0
 rect_scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Rect" ]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="7"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
+
+position = Vector2( 1070, 610 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" index="1"]
+
+position = Vector2( 520, 540 )
+shape = SubResource( 1 )
 
 
