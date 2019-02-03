@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://characters/monster/monster.gd" type="Script" id=1]
+[ext_resource path="res://monsters/monster.gd" type="Script" id=1]
 [ext_resource path="res://characters/health.gd" type="Script" id=2]
-[ext_resource path="res://characters/monster/monster.png" type="Texture" id=3]
-[ext_resource path="res://characters/InterfaceHook.tscn" type="PackedScene" id=4]
-[ext_resource path="res://characters/shadow.png" type="Texture" id=5]
+[ext_resource path="res://monsters/monster.png" type="Texture" id=3]
+[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=4]
+[ext_resource path="res://characters/InterfaceHook.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/shadow.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 
@@ -1021,7 +1022,7 @@ tracks/6/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 14.8686, 45.1606 )
 
-[node name="Monster" type="KinematicBody2D" groups=[
+[node name="Monster" type="KinematicBody2D" index="0" groups=[
 "character",
 "actor",
 ]]
@@ -1032,6 +1033,8 @@ collision_mask = 5
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+max_follow_speed = 200.0
+max_roam_speed = 125.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -1085,7 +1088,15 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Offset", "Transform", "Visibility" ]
 
-[node name="InterfaceHook" parent="." index="5" instance=ExtResource( 4 )]
+[node name="ExclamationMark" type="Sprite" parent="BodyPivot" index="1"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 36.1312, -103.154 )
+rotation = 0.386625
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="InterfaceHook" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( -1, -142.067 )
 
@@ -1094,24 +1105,24 @@ position = Vector2( -1, -142.067 )
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 1, 1, 1, 0.497255 )
 show_behind_parent = true
-position = Vector2( -0.32052, 0.328315 )
-scale = Vector2( 0.487105, 0.200539 )
-texture = ExtResource( 5 )
+position = Vector2( -12.3213, 28.4525 )
+scale = Vector2( 0.981536, 0.450135 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Timer" type="Timer" parent="." index="7"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-
-[node name="RayCast2D" type="RayCast2D" parent="." index="8"]
+[node name="RayCast2D" type="RayCast2D" parent="." index="7"]
 
 enabled = false
 exclude_parent = true
 cast_to = Vector2( 0, 50 )
 collision_mask = 1
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Timer" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 

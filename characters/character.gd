@@ -4,6 +4,9 @@ extends KinematicBody2D
 signal speed_updated
 signal state_changed
 
+signal position_changed
+signal died
+
 var input_direction = Vector2()
 var last_move_direction = Vector2(1, 0)
 var sprite_direction = "down"
@@ -122,6 +125,7 @@ func _physics_process(delta):
 		var collision_info = move(delta)
 		animation_switch("walk")
 		
+		emit_signal('position_changed', position)
 		if collision_info:
 			var collider = collision_info.collider
 			if max_speed == MAX_RUN_SPEED and collider.is_in_group('environment'):

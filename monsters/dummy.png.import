@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monster.png-f305d228651b4579fc88489f6b1a59e9.stex"
+path="res://.import/dummy.png-c45095d1dc3e5592b2c59d8fdd5fee97.stex"
 
 [deps]
 
-source_file="res://characters/monster/monster.png"
-dest_files=[ "res://.import/monster.png-f305d228651b4579fc88489f6b1a59e9.stex" ]
+source_file="res://monsters/dummy.png"
+dest_files=[ "res://.import/dummy.png-c45095d1dc3e5592b2c59d8fdd5fee97.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
