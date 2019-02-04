@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://level.gd" type="Script" id=1]
 [ext_resource path="res://interface/inventory/ItemsMenu.tscn" type="PackedScene" id=2]
@@ -10,18 +10,19 @@
 [ext_resource path="res://tileset/maps/Test.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tileset/Castle.tres" type="TileSet" id=9]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://monsters/Dummy.tscn" type="PackedScene" id=11]
-[ext_resource path="res://monsters/Monster.tscn" type="PackedScene" id=12]
-[ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=13]
-[ext_resource path="res://interface/LifebarBuilder.tscn" type="PackedScene" id=14]
-[ext_resource path="res://interface/player_gui/life_bar/Lifebar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://monsters/dummy/Dummy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://monsters/skeleton/Skeleton.tscn" type="PackedScene" id=12]
+[ext_resource path="res://monsters/hornet/Hornet.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=14]
+[ext_resource path="res://interface/LifebarBuilder.tscn" type="PackedScene" id=15]
+[ext_resource path="res://interface/player_gui/life_bar/Lifebar.tscn" type="PackedScene" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 114.018
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -101,8 +102,29 @@ collision_mask = 10
 [node name="Monster" parent="YSort" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 120, 600 )
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+FOLLOW_RANGE = 200.0
 
-[node name="StaticBody2D" parent="." index="5" instance=ExtResource( 13 )]
+[node name="Hornet" parent="YSort" index="3" instance=ExtResource( 13 )]
+
+position = Vector2( 90, 120 )
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+FOLLOW_RANGE = 200.0
+MAX_FLY_SPEED = 400.0
+
+[node name="Monster2" parent="YSort" index="4" instance=ExtResource( 12 )]
+
+position = Vector2( 1180, 410 )
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+FOLLOW_RANGE = 200.0
+
+[node name="StaticBody2D" parent="." index="5" instance=ExtResource( 14 )]
 
 position = Vector2( 255.904, 315.118 )
 
@@ -115,7 +137,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="LifebarBuilder" parent="Interface" index="0" instance=ExtResource( 14 )]
+[node name="LifebarBuilder" parent="Interface" index="0" instance=ExtResource( 15 )]
 
 [node name="PlayerGUI" type="Control" parent="Interface" index="1"]
 
@@ -133,7 +155,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Lifebar" parent="Interface/PlayerGUI" index="0" instance=ExtResource( 15 )]
+[node name="Lifebar" parent="Interface/PlayerGUI" index="0" instance=ExtResource( 16 )]
 
 margin_right = 396.0
 margin_bottom = 53.0
@@ -149,15 +171,18 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
 
 position = Vector2( 1070, 610 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" index="1"]
 
 position = Vector2( 520, 540 )
 shape = SubResource( 1 )
+disabled = true
 
 

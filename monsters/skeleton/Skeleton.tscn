@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://monsters/dummy.gd" type="Script" id=1]
+[ext_resource path="res://monsters/skeleton/skeleton.gd" type="Script" id=1]
 [ext_resource path="res://characters/health.gd" type="Script" id=2]
-[ext_resource path="res://characters/InterfaceHook.tscn" type="PackedScene" id=3]
-[ext_resource path="res://monsters/dummy.png" type="Texture" id=4]
-[ext_resource path="res://characters/weapon/weapon-pivot.gd" type="Script" id=5]
+[ext_resource path="res://monsters/skeleton/body.png" type="Texture" id=3]
+[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=4]
+[ext_resource path="res://characters/InterfaceHook.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/shadow.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
@@ -14,7 +14,7 @@ length = 0.01
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.16106, -23.5763 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -38,7 +38,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -59,7 +59,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.0797042, -0.0885391 ) ]
+"values": [ Vector2( 6.86812, 26.5781 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Shadow:rotation_degrees")
@@ -83,10 +83,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.487105, 0.200539 ) ]
+"values": [ Vector2( 0.988028, 0.384888 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Body:modulate")
+tracks/6/path = NodePath("BodyPivot/Body:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -98,7 +98,7 @@ tracks/6/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Pivot:modulate")
+tracks/7/path = NodePath("BodyPivot:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -117,7 +117,7 @@ length = 0.7
 loop = false
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:modulate")
+tracks/0/path = NodePath("BodyPivot/Body:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -141,7 +141,7 @@ tracks/1/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -159,7 +159,7 @@ length = 0.01
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -171,7 +171,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.16106, -23.5763 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -183,7 +183,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -237,7 +237,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -249,7 +249,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.22585, -19.9704 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -261,7 +261,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -309,7 +309,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.487105, 0.200539 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Body:frame")
+tracks/6/path = NodePath("BodyPivot/Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -327,7 +327,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -339,7 +339,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.16106, -23.5763 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -351,7 +351,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -399,7 +399,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.487105, 0.200539 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Body:frame")
+tracks/6/path = NodePath("BodyPivot/Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -411,7 +411,7 @@ tracks/6/keys = {
 "values": [ 1 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Pivot/Body:flip_h")
+tracks/7/path = NodePath("BodyPivot/Body:flip_h")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -429,7 +429,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -441,7 +441,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.16106, -23.5763 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -453,7 +453,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -501,7 +501,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.487105, 0.200539 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Body:frame")
+tracks/6/path = NodePath("BodyPivot/Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -513,7 +513,7 @@ tracks/6/keys = {
 "values": [ 1 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Pivot/Body:flip_h")
+tracks/7/path = NodePath("BodyPivot/Body:flip_h")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -531,7 +531,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -543,7 +543,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.16106, -18.5834 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -555,7 +555,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -603,7 +603,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.487105, 0.200539 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Body:frame")
+tracks/6/path = NodePath("BodyPivot/Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -617,11 +617,174 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id=8]
 
+resource_name = "spot"
+length = 0.9
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodyPivot/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1.16106, -23.5763 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BodyPivot/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Shadow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 6.86812, 26.5781 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Shadow:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Shadow:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.988028, 0.384888 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BodyPivot/Body:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("BodyPivot:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("BodyPivot/ExclamationMark:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("BodyPivot/ExclamationMark:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 28.7165, -80.6097 ), Vector2( 36.2753, -94.5296 ), Vector2( 36.5039, -93.4977 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("BodyPivot/ExclamationMark:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.652793, 11.0194, 13.6971 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("BodyPivot/ExclamationMark:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.34933, 0.353505 ), Vector2( 0.675197, 0.763974 ), Vector2( 0.622744, 0.729785 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("BodyPivot/ExclamationMark:self_modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+
 length = 0.4
 loop = false
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot:modulate")
+tracks/0/path = NodePath("BodyPivot:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -633,13 +796,13 @@ tracks/0/keys = {
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
 length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -651,7 +814,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.16106, -23.5763 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -663,7 +826,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -711,7 +874,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.487105, 0.200539 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Body:frame")
+tracks/6/path = NodePath("BodyPivot/Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -723,13 +886,13 @@ tracks/6/keys = {
 "values": [ 8, 10 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
 length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -741,7 +904,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.16106, -23.5763 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -753,7 +916,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -801,7 +964,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.487105, 0.200539 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Body:frame")
+tracks/6/path = NodePath("BodyPivot/Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -813,7 +976,7 @@ tracks/6/keys = {
 "values": [ 0, 2 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Pivot/Body:flip_h")
+tracks/7/path = NodePath("BodyPivot/Body:flip_h")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -825,13 +988,13 @@ tracks/7/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
 length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -843,7 +1006,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.780606, -23.2989 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -855,7 +1018,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -903,7 +1066,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.487105, 0.200539 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Body:frame")
+tracks/6/path = NodePath("BodyPivot/Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -915,7 +1078,7 @@ tracks/6/keys = {
 "values": [ 0, 2 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Pivot/Body:flip_h")
+tracks/7/path = NodePath("BodyPivot/Body:flip_h")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -927,13 +1090,13 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 
 length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Body:position")
+tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -945,7 +1108,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.503224, -21.6346 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/1/path = NodePath("BodyPivot/Body:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -957,7 +1120,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Body:scale")
+tracks/2/path = NodePath("BodyPivot/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1005,7 +1168,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.487105, 0.200539 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pivot/Body:frame")
+tracks/6/path = NodePath("BodyPivot/Body:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1017,12 +1180,12 @@ tracks/6/keys = {
 "values": [ 4, 6 ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=14]
 
 custom_solver_bias = 0.0
-extents = Vector2( 43.4004, 44.5118 )
+extents = Vector2( 14.8686, 45.1606 )
 
-[node name="Dummy" type="KinematicBody2D" groups=[
+[node name="Skeleton" type="KinematicBody2D" index="0" groups=[
 "character",
 "actor",
 ]]
@@ -1033,8 +1196,13 @@ collision_mask = 5
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
-knockback_force = 10.0
-weapon_scene_path = ""
+FOLLOW_RANGE = 450.0
+ARRIVE_DISTANCE = 3.0
+SLOW_RADIUS = 200
+MASS = 10.0
+knockback = 10
+max_follow_speed = 200.0
+max_roam_speed = 125.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -1042,7 +1210,7 @@ root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-playback_speed = 2.0
+playback_speed = 1.0
 anims/SETUP = SubResource( 1 )
 anims/die = SubResource( 2 )
 anims/idle = SubResource( 3 )
@@ -1050,11 +1218,12 @@ anims/idle_down = SubResource( 4 )
 anims/idle_left = SubResource( 5 )
 anims/idle_right = SubResource( 6 )
 anims/idle_up = SubResource( 7 )
-anims/stagger = SubResource( 8 )
-anims/walk_down = SubResource( 9 )
-anims/walk_left = SubResource( 10 )
-anims/walk_right = SubResource( 11 )
-anims/walk_up = SubResource( 12 )
+anims/spot = SubResource( 8 )
+anims/stagger = SubResource( 9 )
+anims/walk_down = SubResource( 10 )
+anims/walk_left = SubResource( 11 )
+anims/walk_right = SubResource( 12 )
+anims/walk_up = SubResource( 13 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -1067,49 +1236,64 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Health" type="Node" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( -8.16382, -21.0132 )
+shape = SubResource( 14 )
+
+[node name="Health" type="Node" parent="." index="3"]
 
 script = ExtResource( 2 )
 max_health = 5
 
-[node name="InterfaceHook" parent="." index="3" instance=ExtResource( 3 )]
+[node name="BodyPivot" type="Position2D" parent="." index="4"]
 
-position = Vector2( -1, -142.067 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Pivot" type="Position2D" parent="." index="4"]
-
-_sections_unfolded = [ "Visibility" ]
-
-[node name="Body" type="Sprite" parent="Pivot" index="0"]
+[node name="Body" type="Sprite" parent="BodyPivot" index="0"]
 
 position = Vector2( -1.16106, -23.5763 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
+flip_h = true
 _sections_unfolded = [ "Animation", "Offset", "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+[node name="ExclamationMark" type="Sprite" parent="BodyPivot" index="1"]
 
-visible = false
-position = Vector2( 0.836182, -28.0132 )
-shape = SubResource( 13 )
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 36.5039, -93.4977 )
+rotation = 0.23906
+scale = Vector2( 0.622744, 0.729785 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
 
-[node name="WeaponPivot" type="Position2D" parent="." index="6"]
+[node name="InterfaceHook" parent="." index="5" instance=ExtResource( 5 )]
 
-position = Vector2( 0, -13.0369 )
-script = ExtResource( 5 )
+position = Vector2( -1, -142.067 )
 
-[node name="WeaponSpawn" type="Position2D" parent="WeaponPivot" index="0"]
-
-position = Vector2( 28.2929, 0 )
-
-[node name="Shadow" type="Sprite" parent="." index="7"]
+[node name="Shadow" type="Sprite" parent="." index="6"]
 
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 1, 1, 1, 0.497255 )
 show_behind_parent = true
-position = Vector2( -0.32052, 0.328315 )
-scale = Vector2( 0.487105, 0.200539 )
+position = Vector2( 6.86812, 26.5781 )
+scale = Vector2( 0.988028, 0.384888 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="7"]
+
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 1
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Timer" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 

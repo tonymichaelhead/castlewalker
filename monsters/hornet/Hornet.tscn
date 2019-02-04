@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://monsters/Monster.tscn" type="PackedScene" id=1]
+[ext_resource path="res://monsters/hornet/hornet.gd" type="Script" id=2]
+[ext_resource path="res://monsters/hornet/body.png" type="Texture" id=3]
+
+[node name="Hornet" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+FOLLOW_RANGE = 450.0
+ARRIVE_DISTANCE = 3.0
+SLOW_RADIUS = 200
+MASS = 10.0
+knockback = 10
+max_follow_speed = 200.0
+max_roam_speed = 125.0
+
+[node name="CollisionPolygon2D" parent="." index="3"]
+
+polygon = PoolVector2Array( 32, 34, -18, 34, -18, -24, 32, -24 )
+
+[node name="Body" parent="BodyPivot" index="0"]
+
+position = Vector2( 0, 0 )
+texture = ExtResource( 3 )
+offset = Vector2( -7.44071, -9.05087 )
+flip_h = false
+
+

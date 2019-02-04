@@ -195,6 +195,8 @@ func animation_switch(animation):
 		
 
 func _on_Tween_tween_completed(object, key):
+	if key == ":position":
+		_change_state(IDLE)
 	if key == ":_animate_bump_height":
 		_change_state(IDLE)
 	if key == ":_animate_jump_height":
@@ -219,6 +221,11 @@ func _animate_jump_height(progress):
 func _on_Weapon_attack_finished():
 	_change_state(IDLE)
 	
+
+func _on_HitBox_body_entered(body):
+	if body.is_in_group('character'):
+		take_damage(body, 2)
+
 
 func _on_Health_health_changed(new_health):
 	if new_health == 0:

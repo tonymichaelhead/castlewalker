@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://characters/character.gd" type="Script" id=1]
+[ext_resource path="res://monsters/dummy/dummy.gd" type="Script" id=1]
 [ext_resource path="res://characters/health.gd" type="Script" id=2]
-[ext_resource path="res://characters/body.png" type="Texture" id=3]
-[ext_resource path="res://characters/weapon/weapon-pivot.gd" type="Script" id=4]
-[ext_resource path="res://characters/shadow.png" type="Texture" id=5]
+[ext_resource path="res://characters/InterfaceHook.tscn" type="PackedScene" id=3]
+[ext_resource path="res://monsters/dummy/body.png" type="Texture" id=4]
+[ext_resource path="res://characters/weapon/weapon-pivot.gd" type="Script" id=5]
+[ext_resource path="res://characters/shadow.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 
@@ -1019,10 +1020,11 @@ tracks/6/keys = {
 [sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
-extents = Vector2( 12.4577, 3.46118 )
+extents = Vector2( 43.4004, 44.5118 )
 
-[node name="Character" type="KinematicBody2D" groups=[
+[node name="Dummy" type="KinematicBody2D" groups=[
 "character",
+"actor",
 ]]
 
 input_pickable = false
@@ -1032,7 +1034,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 knockback_force = 10.0
-weapon_path = ""
+weapon_scene_path = ""
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -1070,31 +1072,11 @@ playback/speed = 1.0
 script = ExtResource( 2 )
 max_health = 5
 
-[node name="HitBox" type="Area2D" parent="." index="3"]
+[node name="InterfaceHook" parent="." index="3" instance=ExtResource( 3 )]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 2
-collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
+position = Vector2( -1, -142.067 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( -15, -44, 11, -44, 11, -5, -15, -5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
-
-position = Vector2( -0.254669, -5.09348 )
-shape = SubResource( 13 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="Pivot" type="Position2D" parent="." index="5"]
+[node name="Pivot" type="Position2D" parent="." index="4"]
 
 _sections_unfolded = [ "Visibility" ]
 
@@ -1102,16 +1084,19 @@ _sections_unfolded = [ "Visibility" ]
 
 position = Vector2( -1.16106, -23.5763 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 3 )
-vframes = 4
-hframes = 4
-frame = 9
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Animation", "Offset", "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+
+visible = false
+position = Vector2( 0.836182, -28.0132 )
+shape = SubResource( 13 )
 
 [node name="WeaponPivot" type="Position2D" parent="." index="6"]
 
 position = Vector2( 0, -13.0369 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="WeaponSpawn" type="Position2D" parent="WeaponPivot" index="0"]
 
@@ -1122,11 +1107,9 @@ position = Vector2( 28.2929, 0 )
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 1, 1, 1, 0.497255 )
 show_behind_parent = true
-position = Vector2( -0.0797042, -0.0885391 )
+position = Vector2( -0.32052, 0.328315 )
 scale = Vector2( 0.487105, 0.200539 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-
-[connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 
 
