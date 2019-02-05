@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 signal died
 
+var knockback_direction = Vector2()
+
 const AVOID_MAX_DISTANCE = 150.0
 const AVOID_FORCE = 260.0
 
@@ -70,6 +72,12 @@ func calculate_avoid_force(desired_velocity):
 		var point = $RayCast2D.get_collision_point()
 		push = push_direction * AVOID_FORCE * (1.0 - position.distance_to(point) / AVOID_MAX_DISTANCE)
 	return push
+
+func take_damage(source, amount):
+	if self.is_a_parent_of(source):
+		return
+	knockback_direction = (source.global_position - global_position).normalized()
+	$Health.take_damage(amount)
 
 
 func _on_target_position_changed(new_position):

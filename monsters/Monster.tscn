@@ -1179,14 +1179,14 @@ tracks/6/keys = {
 "values": [ 4, 6 ]
 }
 
-[node name="SteeringMonster" type="KinematicBody2D" index="0" groups=[
+[node name="SteeringMonster" type="KinematicBody2D" groups=[
 "character",
 "actor",
 ]]
 
 input_pickable = false
 collision_layer = 2
-collision_mask = 5
+collision_mask = 7
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 

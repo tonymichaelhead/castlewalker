@@ -2,7 +2,6 @@ extends '../steering-monster.gd'
 
 enum STATES { IDLE, ROAM, RETURN, SPOT, FOLLOW, STAGGER, ATTACK, ATTACK_COOLDOWN, DIE, DEAD }
 
-var knockback_direction = Vector2()
 export(float) var knockback = 10
 const STAGGER_DURATION = 0.4
 
@@ -10,7 +9,7 @@ var last_move_direction = Vector2(1, 0)
 const MASS = 1.4
 
 const SPOT_RANGE = 300.0
-export(float) var FOLLOW_RANGE = 200.0
+export(float) var FOLLOW_RANGE = 400.0
 export(float) var max_follow_speed = 200.0
 export(float) var max_roam_speed = 125.0
 
@@ -124,13 +123,6 @@ func _physics_process(delta):
 					_change_state(ATTACK)
 			if position.distance_to(target_position) > FOLLOW_RANGE:
 				_change_state(RETURN)
-
-
-func take_damage(source, amount):
-	if self.is_a_parent_of(source):
-		return
-	knockback_direction = (source.global_position - global_position).normalized()
-	$Health.take_damage(amount)
 
 
 func update_sprite_direction():

@@ -1019,15 +1019,15 @@ tracks/6/keys = {
 [sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
-extents = Vector2( 12.4577, 3.46118 )
+extents = Vector2( 12.4577, 15 )
 
 [node name="Character" type="KinematicBody2D" groups=[
 "character",
 ]]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 5
+collision_layer = 1
+collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
@@ -1065,13 +1065,22 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Health" type="Node" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( -1, -18 )
+shape = SubResource( 13 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Health" type="Node" parent="." index="3"]
 
 script = ExtResource( 2 )
 max_health = 5
 
-[node name="HitBox" type="Area2D" parent="." index="3"]
+[node name="HitBox" type="Area2D" parent="." index="4" groups=[
+"character",
+]]
 
+position = Vector2( 0.511673, 0.732494 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -1083,16 +1092,12 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox" index="0" groups=[
+"character",
+]]
 
 build_mode = 0
-polygon = PoolVector2Array( -15, -44, 11, -44, 11, -5, -15, -5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
-
-position = Vector2( -0.254669, -5.09348 )
-shape = SubResource( 13 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+polygon = PoolVector2Array( -15, -35, 12, -35, 12, -3, -15, -3 )
 
 [node name="Pivot" type="Position2D" parent="." index="5"]
 
@@ -1105,7 +1110,7 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 vframes = 4
 hframes = 4
-frame = 9
+frame = 10
 _sections_unfolded = [ "Animation", "Offset", "Transform", "Visibility" ]
 
 [node name="WeaponPivot" type="Position2D" parent="." index="6"]

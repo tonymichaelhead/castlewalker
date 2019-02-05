@@ -4,7 +4,7 @@
 [ext_resource path="res://characters/player/player.gd" type="Script" id=2]
 [ext_resource path="res://characters/player/body.png" type="Texture" id=3]
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "actor",
 ] instance=ExtResource( 1 )]
 
@@ -16,12 +16,17 @@ weapon_path = "res://characters/weapon/Weapon.tscn"
 
 playback_speed = 3.0
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( 0.496353, -1.83912 )
+position = Vector2( -0.0611216, -15.4973 )
+
+[node name="HitBox" parent="." index="4"]
+
+position = Vector2( 1.49527, 3.26241 )
 
 [node name="Body" parent="Pivot" index="0"]
 
+visible = true
 texture = ExtResource( 3 )
 frame = 8
 

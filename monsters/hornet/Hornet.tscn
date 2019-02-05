@@ -4,18 +4,19 @@
 [ext_resource path="res://monsters/hornet/hornet.gd" type="Script" id=2]
 [ext_resource path="res://monsters/hornet/body.png" type="Texture" id=3]
 
-[node name="Hornet" index="0" instance=ExtResource( 1 )]
+[node name="Hornet" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
-FOLLOW_RANGE = 450.0
 ARRIVE_DISTANCE = 3.0
-SLOW_RADIUS = 200
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
 MASS = 10.0
+SLOW_RADIUS = 200
 knockback = 10
-max_follow_speed = 200.0
-max_roam_speed = 125.0
+FOLLOW_RANGE = 450.0
+MAX_FLY_SPEED = 300.0
 
-[node name="CollisionPolygon2D" parent="." index="3"]
+[node name="CollisionPolygon2D" parent="." index="2"]
 
 polygon = PoolVector2Array( 32, 34, -18, 34, -18, -24, 32, -24 )
 

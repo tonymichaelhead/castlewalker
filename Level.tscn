@@ -87,10 +87,8 @@ _sections_unfolded = [ "Material", "Sort" ]
 
 [node name="Player" parent="YSort" index="0" instance=ExtResource( 10 )]
 
-position = Vector2( 495.224, 282.247 )
-z_index = 1
-collision_layer = 1
-collision_mask = 1
+position = Vector2( 570, 320 )
+z_index = 3
 
 [node name="Dummy" parent="YSort" index="1" instance=ExtResource( 11 )]
 
@@ -102,31 +100,23 @@ collision_mask = 10
 [node name="Monster" parent="YSort" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 120, 600 )
-DEFAULT_SLOW_RADIUS = 200.0
-DEFAULT_MAX_SPEED = 300.0
 MASS = 8.0
-FOLLOW_RANGE = 200.0
+FOLLOW_RANGE = 400.0
 
-[node name="Hornet" parent="YSort" index="3" instance=ExtResource( 13 )]
-
-position = Vector2( 90, 120 )
-DEFAULT_SLOW_RADIUS = 200.0
-DEFAULT_MAX_SPEED = 300.0
-MASS = 8.0
-FOLLOW_RANGE = 200.0
-MAX_FLY_SPEED = 400.0
-
-[node name="Monster2" parent="YSort" index="4" instance=ExtResource( 12 )]
+[node name="Monster2" parent="YSort" index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 1180, 410 )
-DEFAULT_SLOW_RADIUS = 200.0
-DEFAULT_MAX_SPEED = 300.0
 MASS = 8.0
-FOLLOW_RANGE = 200.0
+FOLLOW_RANGE = 400.0
 
-[node name="StaticBody2D" parent="." index="5" instance=ExtResource( 14 )]
+[node name="Hornet" parent="YSort" index="4" instance=ExtResource( 13 )]
 
-position = Vector2( 255.904, 315.118 )
+position = Vector2( 230, 130 )
+MAX_FLY_SPEED = 200.0
+
+[node name="Rock" parent="." index="5" instance=ExtResource( 14 )]
+
+position = Vector2( 200, 350 )
 
 [node name="Interface" type="CanvasLayer" parent="." index="6"]
 

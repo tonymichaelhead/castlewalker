@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://monsters/skeleton/skeleton.gd" type="Script" id=1]
 [ext_resource path="res://characters/health.gd" type="Script" id=2]
@@ -1180,12 +1180,7 @@ tracks/6/keys = {
 "values": [ 4, 6 ]
 }
 
-[sub_resource type="RectangleShape2D" id=14]
-
-custom_solver_bias = 0.0
-extents = Vector2( 14.8686, 45.1606 )
-
-[node name="Skeleton" type="KinematicBody2D" index="0" groups=[
+[node name="Skeleton" type="KinematicBody2D" groups=[
 "character",
 "actor",
 ]]
@@ -1196,11 +1191,13 @@ collision_mask = 5
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
-FOLLOW_RANGE = 450.0
 ARRIVE_DISTANCE = 3.0
-SLOW_RADIUS = 200
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
 MASS = 10.0
+SLOW_RADIUS = 200
 knockback = 10
+FOLLOW_RANGE = 450.0
 max_follow_speed = 200.0
 max_roam_speed = 125.0
 
@@ -1236,10 +1233,10 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
 
-position = Vector2( -8.16382, -21.0132 )
-shape = SubResource( 14 )
+build_mode = 0
+polygon = PoolVector2Array( -18, -62, 16, -62, 16, 2, -18, 2 )
 
 [node name="Health" type="Node" parent="." index="3"]
 
