@@ -103,9 +103,10 @@ func _change_state(new_state):
 			$Tween.interpolate_property(self, 'position', position, position + knockback_force * knockback_direction, KNOCKBACK_DURATION, Tween.TRANS_QUART, Tween.EASE_OUT)
 			$Tween.start()
 		DIE:
-			$CollisionShape2D.disabled = true
+			$CollisionPolygon2D.disabled = true
 			set_process_input(false)
 			$AnimationPlayer.play('die')
+			emit_signal('died')
 	state = new_state
 	
 	
@@ -223,7 +224,7 @@ func _on_Weapon_attack_finished():
 	
 
 func _on_HitBox_body_entered(body):
-	if body.is_in_group('character'):
+	if body.is_in_group('monster'):
 		take_damage(body, 2)
 
 

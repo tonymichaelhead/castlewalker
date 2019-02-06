@@ -16,17 +16,12 @@ weapon_path = "res://characters/weapon/Weapon.tscn"
 
 playback_speed = 3.0
 
-[node name="CollisionShape2D" parent="." index="2"]
-
-position = Vector2( -0.0611216, -15.4973 )
-
 [node name="HitBox" parent="." index="4"]
 
 position = Vector2( 1.49527, 3.26241 )
 
 [node name="Body" parent="Pivot" index="0"]
 
-visible = true
 texture = ExtResource( 3 )
 frame = 8
 

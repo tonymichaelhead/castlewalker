@@ -1181,13 +1181,13 @@ tracks/6/keys = {
 }
 
 [node name="Skeleton" type="KinematicBody2D" groups=[
-"character",
 "actor",
+"monster",
 ]]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 5
+collision_layer = 8
+collision_mask = 7
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]

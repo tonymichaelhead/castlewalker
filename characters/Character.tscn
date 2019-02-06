@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://characters/health.gd" type="Script" id=2]
@@ -1016,18 +1016,13 @@ tracks/6/keys = {
 "values": [ 4, 6 ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
-
-custom_solver_bias = 0.0
-extents = Vector2( 12.4577, 15 )
-
-[node name="Character" type="KinematicBody2D" groups=[
+[node name="Character" type="KinematicBody2D" index="0" groups=[
 "character",
 ]]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 9
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
@@ -1065,11 +1060,10 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
 
-position = Vector2( -1, -18 )
-shape = SubResource( 13 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+build_mode = 0
+polygon = PoolVector2Array( -13, -31, 11, -31, 11, -3, -13, -3 )
 
 [node name="Health" type="Node" parent="." index="3"]
 

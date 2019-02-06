@@ -1180,12 +1180,12 @@ tracks/6/keys = {
 }
 
 [node name="SteeringMonster" type="KinematicBody2D" groups=[
-"character",
 "actor",
+"monster",
 ]]
 
 input_pickable = false
-collision_layer = 2
+collision_layer = 8
 collision_mask = 7
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]

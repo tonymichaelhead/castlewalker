@@ -10,9 +10,9 @@
 [ext_resource path="res://tileset/maps/Test.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tileset/Castle.tres" type="TileSet" id=9]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://monsters/dummy/Dummy.tscn" type="PackedScene" id=11]
-[ext_resource path="res://monsters/skeleton/Skeleton.tscn" type="PackedScene" id=12]
-[ext_resource path="res://monsters/hornet/Hornet.tscn" type="PackedScene" id=13]
+[ext_resource path="res://monsters/skeleton/Skeleton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://monsters/hornet/Hornet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://monsters/dummy/Dummy.tscn" type="PackedScene" id=13]
 [ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://interface/LifebarBuilder.tscn" type="PackedScene" id=15]
 [ext_resource path="res://interface/player_gui/life_bar/Lifebar.tscn" type="PackedScene" id=16]
@@ -22,7 +22,7 @@
 custom_solver_bias = 0.0
 radius = 114.018
 
-[node name="Level" type="Node" index="0"]
+[node name="Level" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -87,32 +87,23 @@ _sections_unfolded = [ "Material", "Sort" ]
 
 [node name="Player" parent="YSort" index="0" instance=ExtResource( 10 )]
 
-position = Vector2( 570, 320 )
-z_index = 3
+position = Vector2( 800, 460 )
 
-[node name="Dummy" parent="YSort" index="1" instance=ExtResource( 11 )]
+[node name="Skeleton" parent="YSort" index="1" instance=ExtResource( 11 )]
 
-position = Vector2( 860, 280 )
-z_index = 1
-collision_layer = 1
-collision_mask = 10
+position = Vector2( 140, 610 )
 
-[node name="Monster" parent="YSort" index="2" instance=ExtResource( 12 )]
+[node name="Skeleton2" parent="YSort" index="2" instance=ExtResource( 11 )]
 
-position = Vector2( 120, 600 )
-MASS = 8.0
-FOLLOW_RANGE = 400.0
+position = Vector2( 1170, 390 )
 
-[node name="Monster2" parent="YSort" index="3" instance=ExtResource( 12 )]
+[node name="Hornet" parent="YSort" index="3" instance=ExtResource( 12 )]
 
-position = Vector2( 1180, 410 )
-MASS = 8.0
-FOLLOW_RANGE = 400.0
+position = Vector2( 280, 160 )
 
-[node name="Hornet" parent="YSort" index="4" instance=ExtResource( 13 )]
+[node name="Dummy" parent="YSort" index="4" instance=ExtResource( 13 )]
 
-position = Vector2( 230, 130 )
-MAX_FLY_SPEED = 200.0
+position = Vector2( 900, 70 )
 
 [node name="Rock" parent="." index="5" instance=ExtResource( 14 )]
 
@@ -161,7 +152,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Collision", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
 
@@ -171,7 +162,7 @@ disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" index="1"]
 
-position = Vector2( 520, 540 )
+position = Vector2( 590, 490 )
 shape = SubResource( 1 )
 disabled = true
 
