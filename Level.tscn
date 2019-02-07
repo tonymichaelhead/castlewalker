@@ -22,7 +22,7 @@
 custom_solver_bias = 0.0
 radius = 114.018
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -87,7 +87,7 @@ _sections_unfolded = [ "Material", "Sort" ]
 
 [node name="Player" parent="YSort" index="0" instance=ExtResource( 10 )]
 
-position = Vector2( 800, 460 )
+position = Vector2( 350, 330 )
 
 [node name="Skeleton" parent="YSort" index="1" instance=ExtResource( 11 )]
 
@@ -99,7 +99,8 @@ position = Vector2( 1170, 390 )
 
 [node name="Hornet" parent="YSort" index="3" instance=ExtResource( 12 )]
 
-position = Vector2( 280, 160 )
+position = Vector2( 1120, 630 )
+MAX_FLY_SPEED = 200.0
 
 [node name="Dummy" parent="YSort" index="4" instance=ExtResource( 13 )]
 
@@ -158,12 +159,10 @@ _sections_unfolded = [ "Collision", "Visibility" ]
 
 position = Vector2( 1070, 610 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" index="1"]
 
 position = Vector2( 590, 490 )
 shape = SubResource( 1 )
-disabled = true
 
 

@@ -1016,7 +1016,7 @@ tracks/6/keys = {
 "values": [ 4, 6 ]
 }
 
-[node name="Character" type="KinematicBody2D" index="0" groups=[
+[node name="Character" type="KinematicBody2D" groups=[
 "character",
 ]]
 

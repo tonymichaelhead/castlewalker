@@ -67,9 +67,6 @@ func _change_state(new_state):
 	match state:
 		ATTACK:
 			set_physics_process(true)
-		DIE:
-			print('change state die')
-			queue_free()
 	
 	# Initialize the new state
 	match new_state:
@@ -106,7 +103,9 @@ func _change_state(new_state):
 			$CollisionPolygon2D.disabled = true
 			set_process_input(false)
 			$AnimationPlayer.play('die')
+		DEAD:
 			emit_signal('died')
+			queue_free()
 	state = new_state
 	
 	

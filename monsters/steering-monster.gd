@@ -84,7 +84,7 @@ func _on_target_position_changed(new_position):
 	target_position = new_position
 
 
-func _on_target_died(new_position):
+func _on_target_died():
 	target_position = Vector2()
 	has_target = false
 

@@ -6,6 +6,7 @@
 
 [node name="Hornet" instance=ExtResource( 1 )]
 
+collision_mask = 6
 script = ExtResource( 2 )
 ARRIVE_DISTANCE = 3.0
 DEFAULT_SLOW_RADIUS = 200.0
