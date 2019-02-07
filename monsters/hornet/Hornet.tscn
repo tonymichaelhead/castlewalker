@@ -4,7 +4,7 @@
 [ext_resource path="res://monsters/hornet/hornet.gd" type="Script" id=2]
 [ext_resource path="res://monsters/hornet/body.png" type="Texture" id=3]
 
-[node name="Hornet" instance=ExtResource( 1 )]
+[node name="Hornet" index="0" instance=ExtResource( 1 )]
 
 collision_mask = 6
 script = ExtResource( 2 )
@@ -19,13 +19,18 @@ MAX_FLY_SPEED = 300.0
 
 [node name="CollisionPolygon2D" parent="." index="2"]
 
+position = Vector2( -7, -6 )
 polygon = PoolVector2Array( 32, 34, -18, 34, -18, -24, 32, -24 )
 
 [node name="Body" parent="BodyPivot" index="0"]
 
 position = Vector2( 0, 0 )
 texture = ExtResource( 3 )
-offset = Vector2( -7.44071, -9.05087 )
+offset = Vector2( 0, -12 )
 flip_h = false
+
+[node name="RayCast2D" parent="." index="7"]
+
+visible = false
 
 

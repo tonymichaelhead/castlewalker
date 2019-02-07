@@ -18,6 +18,7 @@ func _ready():
 	
 
 func _change_state(new_state):
+	
 	match state:
 		IDLE:
 			$Timer.stop()
@@ -52,6 +53,9 @@ func _change_state(new_state):
 	
 func _physics_process(delta):
 	var current_state = state
+	
+	update_sprite_direction()
+	
 	match current_state:
 		IDLE:
 			if position.distance_to(target_position) < FOLLOW_RANGE:
@@ -67,7 +71,6 @@ func _physics_process(delta):
 				return
 			var body = get_slide_collision(0).collider
 			if body.is_in_group('character'):
-				print('hiiiit')
 				_change_state(ATTACK)
 				
 		RETURN:
@@ -76,7 +79,14 @@ func _physics_process(delta):
 	
 			if position.distance_to(spawn_position) < ARRIVE_DISTANCE:
 				_change_state(IDLE)
-			
+
+
+func update_sprite_direction():
+	if velocity.x < 0:
+		get_node("BodyPivot/Body").set_flip_h(true)
+	else:
+		get_node("BodyPivot/Body").set_flip_h(false)
+		
 
 func _on_Health_health_changed(new_health):
 	if new_health == 0:
