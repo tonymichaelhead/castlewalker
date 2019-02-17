@@ -87,7 +87,7 @@ _sections_unfolded = [ "Material", "Sort" ]
 
 [node name="Player" parent="YSort" index="0" instance=ExtResource( 10 )]
 
-position = Vector2( 350, 330 )
+position = Vector2( 350, 150 )
 
 [node name="Skeleton" parent="YSort" index="1" instance=ExtResource( 11 )]
 
@@ -139,8 +139,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Lifebar" parent="Interface/PlayerGUI" index="0" instance=ExtResource( 16 )]
 
-margin_right = 396.0
-margin_bottom = 53.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 406.0
+margin_bottom = 63.0
 rect_scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Rect" ]
 

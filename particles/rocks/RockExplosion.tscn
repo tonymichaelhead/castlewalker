@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://rocks/rock_explosion.material" type="Material" id=1]
+[ext_resource path="res://rocks/rocks.png" type="Texture" id=2]
+[ext_resource path="res://rocks/pebbles_explosion2.material" type="Material" id=3]
+[ext_resource path="res://rocks/crumbs.png" type="Texture" id=4]
+[ext_resource path="res://rocks/pebbles_explosion.material" type="Material" id=5]
+
+[node name="RockExplosion" type="Particles2D" index="0"]
+
+rotation = -1.57068
+emitting = false
+amount = 8
+lifetime = 0.8
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.9
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+[node name="Pebbles" type="Particles2D" parent="." index="0"]
+
+show_behind_parent = true
+position = Vector2( 2.99396, 2.39461 )
+scale = Vector2( 0.386715, 1.59856 )
+emitting = false
+amount = 10
+lifetime = 0.8
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.9
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = ExtResource( 3 )
+texture = ExtResource( 4 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
+
+[node name="Pebbles2" type="Particles2D" parent="." index="1"]
+
+modulate = Color( 0.617188, 0.54245, 0.54245, 1 )
+show_behind_parent = true
+position = Vector2( 2.99396, 2.39461 )
+scale = Vector2( 0.405426, 1.29926 )
+emitting = false
+amount = 24
+lifetime = 0.8
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.9
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = ExtResource( 5 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
+
+

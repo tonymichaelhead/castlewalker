@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://dust_puffs/puff_material.tres" type="Material" id=1]
+[ext_resource path="res://dust_puffs/puff_stylized.png" type="Texture" id=2]
+
+[node name="PuffWalk" type="Particles2D"]
+
+rotation = -1.57114
+emitting = true
+amount = 6
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.9
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
+
+

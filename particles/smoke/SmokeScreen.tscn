@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://smoke/smoke_screen_particle.tres" type="Material" id=1]
+[ext_resource path="res://smoke/smoke.png" type="Texture" id=2]
+
+[node name="SmokeScreen" type="Particles2D" index="0"]
+
+emitting = false
+amount = 20
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.8
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
+
+[node name="SmokeDarker" type="Particles2D" parent="." index="0"]
+
+modulate = Color( 0.742188, 0.738903, 0.727692, 1 )
+show_behind_parent = true
+scale = Vector2( 1.78746, 1.35301 )
+emitting = false
+amount = 20
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.8
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="SmokeDark" type="Particles2D" parent="." index="1"]
+
+modulate = Color( 0.878906, 0.87035, 0.841141, 1 )
+show_behind_parent = true
+scale = Vector2( 1.36542, 1.35301 )
+emitting = false
+amount = 20
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.8
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Visibility" ]
+
+

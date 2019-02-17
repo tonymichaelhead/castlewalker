@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://dust_charge/puffs.png" type="Texture" id=1]
+[ext_resource path="res://fiery_cloud/fiery_cloud.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 0.101064, 0.287234, 0.784574, 0.832447, 1 )
+colors = PoolColorArray( 0.979718, 0.818968, 0.0898656, 0, 1, 0.901306, 0.0976562, 1, 0.904762, 0.514676, 0.0610739, 1, 0.859375, 0.330422, 0.0436401, 1, 0.132812, 0, 0, 1, 0.282399, 0.0680281, 0.00898474, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.308864 ), 0.0, 0.0, 0, 0, Vector2( 0.202532, 0.510619 ), 0.0, 0.0, 0, 0, Vector2( 0.745959, 0.478763 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 120.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 120.0
+initial_velocity_random = 0.4
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.6
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Animation", "Color", "Gravity", "Initial Velocity", "Scale", "Spread" ]
+
+[node name="FieryCloud" type="Particles2D" index="0"]
+
+position = Vector2( -130.551, 92.5014 )
+emitting = true
+amount = 30
+lifetime = 0.7
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 1
+process_material = SubResource( 5 )
+texture = ExtResource( 1 )
+normal_map = null
+h_frames = 2
+v_frames = 1
+script = ExtResource( 2 )
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+TIME_SCALE = 1.0
+RADIUS = 160.0
+OFFSET = Vector2( 0, 0 )
+active = true
+
+

@@ -5,6 +5,9 @@ signal direction_changed
 func _input(event):
 	if event.is_action_pressed('attack') and not state in [ATTACK, JUMP]:
 		_change_state(ATTACK)
+	
+	if event.is_action_pressed('magic') and not state in [ATTACK, CASTING_FIRE, JUMP]:
+		_change_state(CASTING_FIRE)
 		
 	if event.is_action_pressed('jump'):
 		if not state in [IDLE, MOVE]:

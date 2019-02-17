@@ -39,9 +39,13 @@ var air_steering = Vector2()
 var speed = 0.0
 var max_speed = 0.0
 
+var fire_scene = preload("res://particles/fiery_cloud/Fireball.tscn")
+var fire_count = 0
+var fire_direction = Vector2()
+
 var velocity = Vector2()
 
-enum STATES { IDLE, MOVE, BUMP, JUMP, ATTACK, STAGGER, DIE, DEAD }
+enum STATES { IDLE, MOVE, BUMP, JUMP, ATTACK, CASTING_FIRE, STAGGER, DIE, DEAD }
 var state = null
 
 export(String) var weapon_path = ""
@@ -49,6 +53,7 @@ var weapon = null
 
 
 func _ready():
+
 	$Health.connect("health_changed", self, "_on_Health_health_changed")
 	_change_state(IDLE)
 	$AnimationPlayer.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
@@ -95,6 +100,9 @@ func _change_state(new_state):
 			weapon.attack()
 			$AnimationPlayer.play("idle")
 			set_physics_process(false)
+		CASTING_FIRE:
+			$AnimationPlayer.play('cast_fire')
+			cast_fire()
 		STAGGER:
 			$AnimationPlayer.play('stagger')
 			$Tween.interpolate_property(self, 'position', position, position + knockback_force * knockback_direction, KNOCKBACK_DURATION, Tween.TRANS_QUART, Tween.EASE_OUT)
@@ -107,7 +115,6 @@ func _change_state(new_state):
 			emit_signal('died')
 			queue_free()
 	state = new_state
-	
 	
 func _physics_process(delta):
 	update_direction()
@@ -134,7 +141,6 @@ func _physics_process(delta):
 		jump(delta)
 		
 		animation_switch("idle")
-
 
 func take_damage(source, amount):
 	if self.is_a_parent_of(source):
@@ -210,6 +216,25 @@ func set_height(value):
 	$Shadow.scale = Vector2(shadow_scale, shadow_scale)
 	
 
+func cast_fire():
+	print('start')
+	$FireballTimer.start()
+	fire_direction = last_move_direction
+	process_fire()
+
+
+func process_fire():
+	fire_count += 1
+	var new_fire = fire_scene.instance()
+#	new_fire.position = global_position + fire_count * last_move_direction * 80.0
+	new_fire.position = Vector2() + fire_count * fire_direction * 80.0
+	add_child(new_fire)
+
+func _on_FireballTimer_timeout():
+	print('timeout')
+	process_fire()
+
+
 func _animate_bump_height(progress):
 	self.height = pow(sin(progress * PI), 0.5) * MAX_BUMP_HEIGHT
 
@@ -235,5 +260,11 @@ func _on_Health_health_changed(new_health):
 		
 
 func _on_AnimationPlayer_animation_finished(name):
+	print('anim finished ', name)
 	if name == 'die':
 		_change_state(DEAD)
+	if name == 'cast_fire':
+		print('cast_fire FINISHED')
+		fire_count = 0
+		$FireballTimer.stop()
+		_change_state(IDLE)
