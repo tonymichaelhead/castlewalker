@@ -9,14 +9,14 @@ signal died
 
 var input_direction = Vector2()
 var last_move_direction = Vector2(1, 0)
-var sprite_direction = "down"
+#var sprite_direction = "down"
 
 var knockback_direction = Vector2()
 export(float) var knockback_force = 10.0
 const KNOCKBACK_DURATION = 0.4
 
-const MAX_WALK_SPEED = 200
-const MAX_RUN_SPEED = 350
+#const MAX_WALK_SPEED = 200
+#const MAX_RUN_SPEED = 350
 
 const BUMP_DURATION = 0.2
 const BUMP_DISTANCE = 30
@@ -52,10 +52,16 @@ export(String) var weapon_path = ""
 var weapon = null
 
 
+# New stuff for refactor
+var current_state = null
+
+
+
 func _ready():
 
 	$Health.connect("health_changed", self, "_on_Health_health_changed")
-	_change_state(IDLE)
+#	_change_state(IDLE)
+	_change_state('idle')
 	$AnimationPlayer.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
 	$Tween.connect('tween_completed', self, '_on_Tween_tween_completed')
 	
@@ -120,27 +126,27 @@ func _physics_process(delta):
 	update_direction()
 	update_sprite_direction()
 	
-	if state == IDLE:
-		if input_direction:
-			_change_state(MOVE)
-		else:
-			animation_switch("idle")
-	elif state == MOVE:
-		if not input_direction:
-			_change_state(IDLE)
-			
-		var collision_info = move(delta)
-		animation_switch("walk")
-		
-		emit_signal('position_changed', position)
-		if collision_info:
-			var collider = collision_info.collider
-			if max_speed == MAX_RUN_SPEED and collider.is_in_group('environment'):
-				_change_state(BUMP)
-	elif state == JUMP:
-		jump(delta)
-		
-		animation_switch("idle")
+#	if state == IDLE:
+#		if input_direction:
+#			_change_state(MOVE)
+#		else:
+#			animation_switch("idle")
+#	if state == MOVE:
+#		if not input_direction:
+#			_change_state(IDLE)
+#
+#		var collision_info = move(delta)
+#		animation_switch("walk")
+#
+#		emit_signal('position_changed', position)
+#		if collision_info:
+#			var collider = collision_info.collider
+#			if max_speed == MAX_RUN_SPEED and collider.is_in_group('environment'):
+#				_change_state(BUMP)
+#	elif state == JUMP:
+#		jump(delta)
+#
+#		animation_switch("idle")
 
 func take_damage(source, amount):
 	if self.is_a_parent_of(source):
@@ -182,24 +188,25 @@ func jump(delta):
 	move_and_slide(air_velocity)
 
 
-func update_sprite_direction():
-	match input_direction:
-		Vector2(-1, 0):
-			sprite_direction = "left"
-		Vector2(1, 0):
-			sprite_direction = "right"
-		Vector2(0, -1):
-			sprite_direction = "up"
-		Vector2(0, 1):
-			sprite_direction = "down"
+#func update_sprite_direction():
+#	match input_direction:
+#		Vector2(-1, 0):
+#			sprite_direction = "left"
+#		Vector2(1, 0):
+#			sprite_direction = "right"
+#		Vector2(0, -1):
+#			sprite_direction = "up"
+#		Vector2(0, 1):
+#			sprite_direction = "down"
 
 
-func animation_switch(animation):
-	var new_animation = str(animation, "_", sprite_direction)
-	if $AnimationPlayer.current_animation != new_animation:
-		$AnimationPlayer.play(new_animation)
-		
-
+#func animation_switch(animation):
+#	print('playing anim')
+#	var new_animation = str(animation, "_", sprite_direction)
+#	if $AnimationPlayer.current_animation != new_animation:
+#		$AnimationPlayer.play(new_animation)
+#
+#
 func _on_Tween_tween_completed(object, key):
 	if key == ":position":
 		_change_state(IDLE)
