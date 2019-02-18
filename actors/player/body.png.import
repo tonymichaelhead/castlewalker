@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shadow.png-9b88bc6b24165e21f04edb7eaa0e0cce.stex"
+path="res://.import/body.png-f9a1fa1c6faee90775a5169653a19c8b.stex"
 
 [deps]
 
-source_file="res://characters/shadow.png"
-dest_files=[ "res://.import/shadow.png-9b88bc6b24165e21f04edb7eaa0e0cce.stex" ]
+source_file="res://actors/player/body.png"
+dest_files=[ "res://.import/body.png-f9a1fa1c6faee90775a5169653a19c8b.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

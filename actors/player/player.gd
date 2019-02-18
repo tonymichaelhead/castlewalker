@@ -1,4 +1,4 @@
-extends 'res://characters/character.gd'
+extends 'res://actors/actor.gd'
 
 signal direction_changed
 

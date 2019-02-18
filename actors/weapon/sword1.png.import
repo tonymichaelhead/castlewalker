@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/body.png-e993385fcd62d036d9c46ee15cedaa42.stex"
+path="res://.import/sword1.png-732a17028df6781bbe023e864e7affdb.stex"
 
 [deps]
 
-source_file="res://characters/npc/body.png"
-dest_files=[ "res://.import/body.png-e993385fcd62d036d9c46ee15cedaa42.stex" ]
+source_file="res://actors/weapon/sword1.png"
+dest_files=[ "res://.import/sword1.png-732a17028df6781bbe023e864e7affdb.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

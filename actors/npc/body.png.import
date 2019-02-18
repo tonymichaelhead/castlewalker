@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/body.png-8b07fc266c8c8bcdd4b1defc66b0104d.stex"
+path="res://.import/body.png-de1793c2fa37aa6675f9e80a162bd03d.stex"
 
 [deps]
 
-source_file="res://characters/player/body.png"
-dest_files=[ "res://.import/body.png-8b07fc266c8c8bcdd4b1defc66b0104d.stex" ]
+source_file="res://actors/npc/body.png"
+dest_files=[ "res://.import/body.png-de1793c2fa37aa6675f9e80a162bd03d.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
