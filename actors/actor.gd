@@ -8,7 +8,7 @@ signal position_changed
 signal died
 
 var input_direction = Vector2()
-var last_move_direction = Vector2(1, 0)
+#var last_move_direction = Vector2(1, 0)
 #var sprite_direction = "down"
 
 var knockback_direction = Vector2()
@@ -22,19 +22,19 @@ const BUMP_DURATION = 0.2
 const BUMP_DISTANCE = 30
 const MAX_BUMP_HEIGHT = 20
 
-const JUMP_DURATION = 0.6
-const MAX_JUMP_HEIGHT = 65
+#const JUMP_DURATION = 0.6
+#const MAX_JUMP_HEIGHT = 65
+#
+#var AIR_ACCELERATION = 1000
+#var AIR_DECCELERATION = 2000
+#var AIR_STEERING_POWER = 50
 
-var AIR_ACCELERATION = 1000
-var AIR_DECCELERATION = 2000
-var AIR_STEERING_POWER = 50
+#var height = 0.0 setget set_height
 
-var height = 0.0 setget set_height
-
-var max_air_speed = 0.0
-var air_speed = 0.0
-var air_velocity = Vector2()
-var air_steering = Vector2()
+#var max_air_speed = 0.0
+#var air_speed = 0.0
+#var air_velocity = Vector2()
+#var air_steering = Vector2()
 
 var speed = 0.0
 var max_speed = 0.0
@@ -61,7 +61,6 @@ func _ready():
 
 	$Health.connect("health_changed", self, "_on_Health_health_changed")
 #	_change_state(IDLE)
-	_change_state('idle')
 	$AnimationPlayer.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
 	$Tween.connect('tween_completed', self, '_on_Tween_tween_completed')
 	
@@ -74,57 +73,57 @@ func _ready():
 	weapon.connect("attack_finished", self, "_on_Weapon_attack_finished")
 	
 
-func _change_state(new_state):
-	match state:
-		ATTACK:
-			set_physics_process(true)
+#func _change_state(new_state):
+#	match state:
+#		ATTACK:
+#			set_physics_process(true)
 	
 	# Initialize the new state
-	match new_state:
-		IDLE:
-			pass
-		MOVE:
-			pass
-		JUMP:
-			air_speed = speed
-			max_air_speed = max_speed
-			air_velocity = velocity if input_direction else Vector2()
-			
-			$Tween.interpolate_method(self, '_animate_jump_height', 0, 1, JUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
-			$Tween.start()
-		BUMP:
-			$AnimationPlayer.stop()
-			
-			$Tween.interpolate_property(self, 'position', position, position + BUMP_DISTANCE * -last_move_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
-			$Tween.interpolate_method(self, '_animate_bump_height', 0, 1, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
-			$Tween.start()
-		ATTACK:
-			if not weapon:
-				_change_state(IDLE)
-				return
-			
-			weapon.attack()
-			$AnimationPlayer.play("idle")
-			set_physics_process(false)
-		CASTING_FIRE:
-			$AnimationPlayer.play('cast_fire')
-			cast_fire()
-		STAGGER:
-			$AnimationPlayer.play('stagger')
-			$Tween.interpolate_property(self, 'position', position, position + knockback_force * knockback_direction, KNOCKBACK_DURATION, Tween.TRANS_QUART, Tween.EASE_OUT)
-			$Tween.start()
-		DIE:
-			$CollisionPolygon2D.disabled = true
-			set_process_input(false)
-			$AnimationPlayer.play('die')
-		DEAD:
-			emit_signal('died')
-			queue_free()
-	state = new_state
+#	match new_state:
+#		IDLE:
+#			pass
+#		MOVE:
+#			pass
+#		JUMP:
+#			air_speed = speed
+#			max_air_speed = max_speed
+#			air_velocity = velocity if input_direction else Vector2()
+#
+#			$Tween.interpolate_method(self, '_animate_jump_height', 0, 1, JUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
+#			$Tween.start()
+#		BUMP:
+#			$AnimationPlayer.stop()
+#
+#			$Tween.interpolate_property(self, 'position', position, position + BUMP_DISTANCE * -last_move_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
+#			$Tween.interpolate_method(self, '_animate_bump_height', 0, 1, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
+#			$Tween.start()
+#		ATTACK:
+#			if not weapon:
+#				_change_state(IDLE)
+#				return
+#
+#			weapon.attack()
+#			$AnimationPlayer.play("idle")
+#			set_physics_process(false)
+#		CASTING_FIRE:
+#			$AnimationPlayer.play('cast_fire')
+#			cast_fire()
+#		STAGGER:
+#			$AnimationPlayer.play('stagger')
+#			$Tween.interpolate_property(self, 'position', position, position + knockback_force * knockback_direction, KNOCKBACK_DURATION, Tween.TRANS_QUART, Tween.EASE_OUT)
+#			$Tween.start()
+#		DIE:
+#			$CollisionPolygon2D.disabled = true
+#			set_process_input(false)
+#			$AnimationPlayer.play('die')
+#		DEAD:
+#			emit_signal('died')
+#			queue_free()
+#	state = new_state
 	
-func _physics_process(delta):
-	update_direction()
-	update_sprite_direction()
+#func _physics_process(delta):
+#	update_direction()
+#	update_sprite_direction()
 	
 #	if state == IDLE:
 #		if input_direction:
@@ -155,37 +154,37 @@ func take_damage(source, amount):
 	$Health.take_damage(amount)
 
 
-func update_direction():
-	if input_direction:
-		last_move_direction = input_direction
+#func update_direction():
+#	if input_direction:
+#		last_move_direction = input_direction
 
 
-func move(delta):
-	if input_direction:
-		if speed != max_speed:
-			speed = max_speed
-	else:
-		speed = 0
-		
-	velocity = input_direction.normalized() * speed
-	move_and_slide(velocity, Vector2(), 5, 2)
-	
-	var slide_count = get_slide_count()
-	return get_slide_collision(slide_count -1) if slide_count else null
+#func move(delta):
+#	if input_direction:
+#		if speed != max_speed:
+#			speed = max_speed
+#	else:
+#		speed = 0
+#
+#	velocity = input_direction.normalized() * speed
+#	move_and_slide(velocity, Vector2(), 5, 2)
+#
+#	var slide_count = get_slide_count()
+#	return get_slide_collision(slide_count -1) if slide_count else null
 
 
-func jump(delta):
-	if input_direction:
-		air_speed += AIR_ACCELERATION * delta
-	else:
-		air_speed -= AIR_DECCELERATION * delta
-	air_speed = clamp(air_speed, 0, max_air_speed)
-	
-	var target_velocity = air_speed * input_direction.normalized()
-	var steering_velocity = (target_velocity - air_velocity).normalized() * AIR_STEERING_POWER
-	air_velocity += steering_velocity
-	
-	move_and_slide(air_velocity)
+#func jump(delta):
+#	if input_direction:
+#		air_speed += AIR_ACCELERATION * delta
+#	else:
+#		air_speed -= AIR_DECCELERATION * delta
+#	air_speed = clamp(air_speed, 0, max_air_speed)
+#
+#	var target_velocity = air_speed * input_direction.normalized()
+#	var steering_velocity = (target_velocity - air_velocity).normalized() * AIR_STEERING_POWER
+#	air_velocity += steering_velocity
+#
+#	move_and_slide(air_velocity)
 
 
 #func update_sprite_direction():
@@ -212,22 +211,22 @@ func _on_Tween_tween_completed(object, key):
 		_change_state(IDLE)
 	if key == ":_animate_bump_height":
 		_change_state(IDLE)
-	if key == ":_animate_jump_height":
-		_change_state(IDLE)
+#	if key == ":_animate_jump_height":
+#		_change_state(IDLE)
 	
 
-func set_height(value):	
-	height = value
-	$Pivot.position.y = - value
-	var shadow_scale = 0.48710 - value / MAX_JUMP_HEIGHT * 0.4
-	$Shadow.scale = Vector2(shadow_scale, shadow_scale)
+#func set_height(value):	
+#	height = value
+#	$Pivot.position.y = - value
+#	var shadow_scale = 0.48710 - value / MAX_JUMP_HEIGHT * 0.4
+#	$Shadow.scale = Vector2(shadow_scale, shadow_scale)
 	
 
-func cast_fire():
-	print('start')
-	$FireballTimer.start()
-	fire_direction = last_move_direction
-	process_fire()
+#func cast_fire():
+#	print('start')
+#	$FireballTimer.start()
+#	fire_direction = last_move_direction
+#	process_fire()
 
 
 func process_fire():
@@ -246,8 +245,8 @@ func _animate_bump_height(progress):
 	self.height = pow(sin(progress * PI), 0.5) * MAX_BUMP_HEIGHT
 
 
-func _animate_jump_height(progress):
-	self.height = pow(sin(progress * PI), 0.7) * MAX_JUMP_HEIGHT
+#func _animate_jump_height(progress):
+#	self.height = pow(sin(progress * PI), 0.7) * MAX_JUMP_HEIGHT
 
 
 func _on_Weapon_attack_finished():

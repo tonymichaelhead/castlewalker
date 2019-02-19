@@ -1,5 +1,8 @@
 extends 'on-ground.gd'
 
+var speed = 0.0
+var velocity = Vector2()
+
 const MAX_WALK_SPEED = 200
 const MAX_RUN_SPEED = 350
 

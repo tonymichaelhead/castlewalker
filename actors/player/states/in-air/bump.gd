@@ -1,4 +1,4 @@
-extends "res://utils/state/state.gd"
+extends '../motion.gd'
 
 func enter(host):
 	pass
