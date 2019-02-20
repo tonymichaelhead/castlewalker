@@ -240,9 +240,9 @@ func _on_FireballTimer_timeout():
 	print('timeout')
 	process_fire()
 
-
-func _animate_bump_height(progress):
-	self.height = pow(sin(progress * PI), 0.5) * MAX_BUMP_HEIGHT
+#
+#func _animate_bump_height(progress):
+#	self.height = pow(sin(progress * PI), 0.5) * MAX_BUMP_HEIGHT
 
 
 #func _animate_jump_height(progress):

@@ -36,7 +36,7 @@ func update(host, delta):
 		var collider = collision_info.collider
 		if speed == MAX_RUN_SPEED and collider.is_in_group('environment'):
 #			_change_state(BUMP) # add bump state
-			return ''
+			return 'bump'
 
 
 func get_input_direction(host):

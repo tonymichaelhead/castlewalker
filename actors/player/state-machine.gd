@@ -13,6 +13,7 @@ var current_state = null
 onready var states_map = {
 	'idle': $StateMachine/Idle,
 	'jump': $StateMachine/Jump,
+	'bump': $StateMachine/Bump,
 	'move': $StateMachine/Move,
 }
 
