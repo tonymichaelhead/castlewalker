@@ -16,7 +16,7 @@ func enter(host):
 
 func handle_input(event):
 	if event.is_action_pressed('attack'):
-		return ''
+		return 'attack'
 	if event.is_action_pressed('magic'):
 		return ''
 	if event.is_action_pressed('jump'):
@@ -46,9 +46,10 @@ func get_input_direction(host):
 	input_direction.x = float(Input.is_action_pressed('move_right')) - float(Input.is_action_pressed('move_left'))
 	input_direction.y = float(Input.is_action_pressed('move_down')) - float(Input.is_action_pressed('move_up'))
 	#is this necessary?
-	if input_direction != host.last_move_direction:
+	if input_direction and owner.look_direction !=input_direction:
 		host.last_move_direction = input_direction
 		emit_signal('direction_changed', input_direction) # probably don't need?
+		owner.look_direction = input_direction
 	
 	return input_direction
 

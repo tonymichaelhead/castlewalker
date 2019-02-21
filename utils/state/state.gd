@@ -10,13 +10,13 @@ signal finished(next_state_name)
 func enter():
 	return
 
-func exit():
+func exit(host):
 	return
 
 func handle_input(event):
 	return
 
-func update(delta):
+func update(host, delta):
 	return
 
 func _on_animation_finished(anim_name):

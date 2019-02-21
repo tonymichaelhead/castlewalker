@@ -1,6 +1,6 @@
 extends 'res://actors/actor.gd'
 
-signal direction_changed
+#signal direction_changed
 
 #func _input(event):
 #	if event.is_action_pressed('attack') and not state in [ATTACK, JUMP]:

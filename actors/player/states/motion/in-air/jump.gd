@@ -30,10 +30,6 @@ func enter(host):
 	tween_node.interpolate_method(self, '_animate_jump_height', 0, 1, JUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween_node.start()
 	timer = 0.0
-
-
-func exit(host):
-	return 'idle'
 	
 	
 func update(host, delta):
@@ -68,10 +64,10 @@ func get_input_direction(host):
 	input_direction.x = float(Input.is_action_pressed('move_right')) - float(Input.is_action_pressed('move_left'))
 	input_direction.y = float(Input.is_action_pressed('move_down')) - float(Input.is_action_pressed('move_up'))
 	#is this necessary?
-	if input_direction != host.last_move_direction:
+	if input_direction and owner.look_direction != input_direction:
 		host.last_move_direction = input_direction
 		emit_signal('direction_changed', input_direction) # probably don't need?
-	
+		owner.look_direction = input_direction
 	return input_direction
 
 

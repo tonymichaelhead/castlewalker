@@ -1,12 +1,15 @@
 extends KinematicBody2D
 
 signal state_changed # do i need?
+signal direction_changed
 
-var look_direction = Vector2()
+var look_direction = Vector2(1, 0) setget set_look_direction
 var last_move_direction = look_direction
 var sprite_direction = "down"
 var input_direction = Vector2()
 
+export(String) var weapon_path = ""
+var weapon = null
 
 var current_state = null
 
@@ -15,16 +18,26 @@ onready var states_map = {
 	'jump': $StateMachine/Jump,
 	'bump': $StateMachine/Bump,
 	'move': $StateMachine/Move,
+	'attack': $StateMachine/Attack,
 }
 
 func _ready():
+	
 	current_state = $StateMachine/Idle
 	_change_state('idle')
 	
+	if not weapon_path:
+		return
+	var weapon_node = load(weapon_path).instance()
+
+	$WeaponPivot/WeaponSpawn.add_child(weapon_node)
+	weapon = $WeaponPivot/WeaponSpawn.get_child(0)
+	
+	for state in $StateMachine.get_children():
+		state.connect('finished', self, '_change_state')
 	
 func _physics_process(delta):
 	update_sprite_direction()
-	
 	var new_state = current_state.update(self, delta)
 	if new_state:
 		_change_state(new_state)
@@ -65,3 +78,9 @@ func animation_switch(animation):
 	var new_animation = str(animation, "_", sprite_direction)
 	if $AnimationPlayer.current_animation != new_animation:
 		$AnimationPlayer.play(new_animation)
+		
+		
+func set_look_direction(value):
+	print('look direction ', value)
+	look_direction = value
+	emit_signal("direction_changed", value)

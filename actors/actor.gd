@@ -48,8 +48,8 @@ var velocity = Vector2()
 enum STATES { IDLE, MOVE, BUMP, JUMP, ATTACK, CASTING_FIRE, STAGGER, DIE, DEAD }
 var state = null
 
-export(String) var weapon_path = ""
-var weapon = null
+#export(String) var weapon_path = ""
+#var weapon = null
 
 
 # New stuff for refactor
@@ -64,13 +64,13 @@ func _ready():
 	$AnimationPlayer.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
 	$Tween.connect('tween_completed', self, '_on_Tween_tween_completed')
 	
-	if not weapon_path:
-		return
-	var weapon_node = load(weapon_path).instance()
-
-	$WeaponPivot/WeaponSpawn.add_child(weapon_node)
-	weapon = $WeaponPivot/WeaponSpawn.get_child(0)
-	weapon.connect("attack_finished", self, "_on_Weapon_attack_finished")
+#	if not weapon_path:
+#		return
+#	var weapon_node = load(weapon_path).instance()
+#
+#	$WeaponPivot/WeaponSpawn.add_child(weapon_node)
+#	weapon = $WeaponPivot/WeaponSpawn.get_child(0)
+#	weapon.connect("attack_finished", self, "_on_Weapon_attack_finished")
 	
 
 #func _change_state(new_state):
@@ -209,8 +209,8 @@ func take_damage(source, amount):
 func _on_Tween_tween_completed(object, key):
 	if key == ":position":
 		_change_state(IDLE)
-	if key == ":_animate_bump_height":
-		_change_state(IDLE)
+#	if key == ":_animate_bump_height":
+#		_change_state(IDLE)
 #	if key == ":_animate_jump_height":
 #		_change_state(IDLE)
 	
