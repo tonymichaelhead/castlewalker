@@ -81,6 +81,7 @@ func take_damage(source, amount):
 
 
 func _on_target_position_changed(new_position):
+	print('chaaaanged')
 	target_position = new_position
 
 

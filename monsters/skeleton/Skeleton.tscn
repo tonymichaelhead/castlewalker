@@ -7,7 +7,6 @@
 [ext_resource path="res://actors/InterfaceHook.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/shadow.png" type="Texture" id=6]
 
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "SETUP"
@@ -1181,7 +1180,7 @@ tracks/6/keys = {
 "values": [ 4, 6 ]
 }
 
-[node name="Skeleton" type="KinematicBody2D" groups=[
+[node name="Skeleton" type="KinematicBody2D" index="0" groups=[
 "actor",
 "monster",
 ]]

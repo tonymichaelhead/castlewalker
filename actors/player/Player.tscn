@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/player/state-machine.gd" type="Script" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://actors/player/states/combat/attack.gd" type="Script" id=8]
 [ext_resource path="res://actors/player/states/combat/casting-fire.gd" type="Script" id=9]
 [ext_resource path="res://actors/player/states/combat/stagger.gd" type="Script" id=10]
+[ext_resource path="res://actors/player/states/die.gd" type="Script" id=11]
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "actor",
 ] instance=ExtResource( 1 )]
 
@@ -77,7 +78,7 @@ knockback_force = 10.0
 
 [node name="Die" type="Node" parent="StateMachine" index="7"]
 
-[node name="Dead" type="Node" parent="StateMachine" index="8"]
+script = ExtResource( 11 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 
