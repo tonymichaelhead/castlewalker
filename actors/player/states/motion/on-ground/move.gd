@@ -18,7 +18,7 @@ func handle_input(event):
 	if event.is_action_pressed('attack'):
 		return 'attack'
 	if event.is_action_pressed('magic'):
-		return ''
+		return 'casting_fire'
 	if event.is_action_pressed('jump'):
 		return 'jump'
 

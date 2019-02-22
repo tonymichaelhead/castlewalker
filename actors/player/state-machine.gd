@@ -8,6 +8,8 @@ var last_move_direction = look_direction
 var sprite_direction = "down"
 var input_direction = Vector2()
 
+var knockback_direction = Vector2()
+
 export(String) var weapon_path = ""
 var weapon = null
 
@@ -19,9 +21,12 @@ onready var states_map = {
 	'bump': $StateMachine/Bump,
 	'move': $StateMachine/Move,
 	'attack': $StateMachine/Attack,
+	'casting_fire': $StateMachine/CastingFire,
+	'stagger': $StateMachine/Stagger,
 }
 
 func _ready():
+	$Health.connect("health_changed", self, "_on_Health_health_changed")
 	
 	current_state = $StateMachine/Idle
 	_change_state('idle')
@@ -62,6 +67,14 @@ func _change_state(state_name):
 	emit_signal('state_changed', current_state.get_name())
 
 
+func take_damage(source, amount):
+	print('taking damage')
+	if self.is_a_parent_of(source):
+		return
+	knockback_direction = (global_position - source.global_position).normalized()
+	$Health.take_damage(amount)
+
+
 func update_sprite_direction():
 	match last_move_direction:
 		Vector2(-1, 0):
@@ -81,6 +94,22 @@ func animation_switch(animation):
 		
 		
 func set_look_direction(value):
-	print('look direction ', value)
 	look_direction = value
 	emit_signal("direction_changed", value)
+
+func _on_animation_finished(anim_name):
+#	if not active:
+#		return # Set up active processing stuff. see StateMachine in Godot final example!
+	current_state._on_animation_finished(anim_name)
+	
+
+func _on_HitBox_body_entered(body):
+	if body.is_in_group('monster'):
+		take_damage(body, 2)
+		
+		
+func _on_Health_health_changed(new_health):
+	if new_health == 0:
+		_change_state('')
+	else:
+		_change_state('stagger')

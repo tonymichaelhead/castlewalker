@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/player/state-machine.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://actors/player/states/motion/in-air/bump.gd" type="Script" id=6]
 [ext_resource path="res://actors/player/states/motion/in-air/jump.gd" type="Script" id=7]
 [ext_resource path="res://actors/player/states/combat/attack.gd" type="Script" id=8]
+[ext_resource path="res://actors/player/states/combat/casting-fire.gd" type="Script" id=9]
+[ext_resource path="res://actors/player/states/combat/stagger.gd" type="Script" id=10]
 
 [node name="Player" index="0" groups=[
 "actor",
@@ -66,10 +68,21 @@ script = ExtResource( 8 )
 
 [node name="CastingFire" type="Node" parent="StateMachine" index="5"]
 
+script = ExtResource( 9 )
+
 [node name="Stagger" type="Node" parent="StateMachine" index="6"]
+
+script = ExtResource( 10 )
+knockback_force = 10.0
 
 [node name="Die" type="Node" parent="StateMachine" index="7"]
 
 [node name="Dead" type="Node" parent="StateMachine" index="8"]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
+
+[connection signal="tween_completed" from="Tween" to="StateMachine/Stagger" method="_on_Tween_tween_completed"]
+
+[connection signal="timeout" from="FireballTimer" to="StateMachine/CastingFire" method="_on_FireballTimer_timeout"]
 
 

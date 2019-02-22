@@ -11,9 +11,9 @@ var input_direction = Vector2()
 #var last_move_direction = Vector2(1, 0)
 #var sprite_direction = "down"
 
-var knockback_direction = Vector2()
-export(float) var knockback_force = 10.0
-const KNOCKBACK_DURATION = 0.4
+#var knockback_direction = Vector2()
+#export(float) var knockback_force = 10.0
+#const KNOCKBACK_DURATION = 0.4
 
 #const MAX_WALK_SPEED = 200
 #const MAX_RUN_SPEED = 350
@@ -39,9 +39,9 @@ const MAX_BUMP_HEIGHT = 20
 var speed = 0.0
 var max_speed = 0.0
 
-var fire_scene = preload("res://particles/fiery_cloud/Fireball.tscn")
-var fire_count = 0
-var fire_direction = Vector2()
+#var fire_scene = preload("res://particles/fiery_cloud/Fireball.tscn")
+#var fire_count = 0
+#var fire_direction = Vector2()
 
 var velocity = Vector2()
 
@@ -59,7 +59,7 @@ var current_state = null
 
 func _ready():
 
-	$Health.connect("health_changed", self, "_on_Health_health_changed")
+#	$Health.connect("health_changed", self, "_on_Health_health_changed")
 #	_change_state(IDLE)
 	$AnimationPlayer.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
 	$Tween.connect('tween_completed', self, '_on_Tween_tween_completed')
@@ -147,11 +147,11 @@ func _ready():
 #
 #		animation_switch("idle")
 
-func take_damage(source, amount):
-	if self.is_a_parent_of(source):
-		return
-	knockback_direction = (global_position - source.global_position).normalized()
-	$Health.take_damage(amount)
+#func take_damage(source, amount):
+#	if self.is_a_parent_of(source):
+#		return
+#	knockback_direction = (global_position - source.global_position).normalized()
+#	$Health.take_damage(amount)
 
 
 #func update_direction():
@@ -206,9 +206,9 @@ func take_damage(source, amount):
 #		$AnimationPlayer.play(new_animation)
 #
 #
-func _on_Tween_tween_completed(object, key):
-	if key == ":position":
-		_change_state(IDLE)
+#func _on_Tween_tween_completed(object, key):
+#	if key == ":position":
+#		_change_state(IDLE)
 #	if key == ":_animate_bump_height":
 #		_change_state(IDLE)
 #	if key == ":_animate_jump_height":
@@ -229,16 +229,16 @@ func _on_Tween_tween_completed(object, key):
 #	process_fire()
 
 
-func process_fire():
-	fire_count += 1
-	var new_fire = fire_scene.instance()
-#	new_fire.position = global_position + fire_count * last_move_direction * 80.0
-	new_fire.position = Vector2() + fire_count * fire_direction * 80.0
-	add_child(new_fire)
+#func process_fire():
+#	fire_count += 1
+#	var new_fire = fire_scene.instance()
+##	new_fire.position = global_position + fire_count * last_move_direction * 80.0
+#	new_fire.position = Vector2() + fire_count * fire_direction * 80.0
+#	add_child(new_fire)
 
-func _on_FireballTimer_timeout():
-	print('timeout')
-	process_fire()
+#func _on_FireballTimer_timeout():
+#	print('timeout')
+#	process_fire()
 
 #
 #func _animate_bump_height(progress):
@@ -249,28 +249,28 @@ func _on_FireballTimer_timeout():
 #	self.height = pow(sin(progress * PI), 0.7) * MAX_JUMP_HEIGHT
 
 
-func _on_Weapon_attack_finished():
-	_change_state(IDLE)
+#func _on_Weapon_attack_finished():
+#	_change_state(IDLE)
 	
 
-func _on_HitBox_body_entered(body):
-	if body.is_in_group('monster'):
-		take_damage(body, 2)
+#func _on_HitBox_body_entered(body):
+#	if body.is_in_group('monster'):
+#		take_damage(body, 2)
 
 
-func _on_Health_health_changed(new_health):
-	if new_health == 0:
-		_change_state(DIE)
-	else:
-		_change_state(STAGGER)
+#func _on_Health_health_changed(new_health):
+#	if new_health == 0:
+#		_change_state(DIE)
+#	else:
+#		_change_state(STAGGER)
 		
 
 func _on_AnimationPlayer_animation_finished(name):
 	print('anim finished ', name)
 	if name == 'die':
 		_change_state(DEAD)
-	if name == 'cast_fire':
-		print('cast_fire FINISHED')
-		fire_count = 0
-		$FireballTimer.stop()
-		_change_state(IDLE)
+#	if name == 'cast_fire':
+#		print('cast_fire FINISHED')
+#		fire_count = 0
+#		$FireballTimer.stop()
+#		_change_state(IDLE)
