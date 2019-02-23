@@ -58,20 +58,6 @@ func jump(host, delta, input_direction):
 	owner.emit_signal('position_changed', owner.position)
 
 
-func get_input_direction(host):
-	var input_direction = Vector2()
-	
-	# 8 directions
-	input_direction.x = float(Input.is_action_pressed('move_right')) - float(Input.is_action_pressed('move_left'))
-	input_direction.y = float(Input.is_action_pressed('move_down')) - float(Input.is_action_pressed('move_up'))
-	#is this necessary?
-	if input_direction and owner.look_direction != input_direction:
-		host.last_move_direction = input_direction
-		emit_signal('direction_changed', input_direction) # probably don't need?
-		owner.look_direction = input_direction
-	return input_direction
-
-
 func _animate_jump_height(progress):
 	self.height = pow(sin(progress * PI), 0.7) * MAX_JUMP_HEIGHT
 

@@ -52,8 +52,6 @@ script = ExtResource( 4 )
 [node name="Move" type="Node" parent="StateMachine" index="1"]
 
 script = ExtResource( 5 )
-MAX_WALK_SPEED = 200
-MAX_RUN_SPEED = 350
 
 [node name="Bump" type="Node" parent="StateMachine" index="2"]
 

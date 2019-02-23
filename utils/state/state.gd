@@ -7,7 +7,7 @@ extends Node
 
 signal finished(next_state_name)
 
-func enter():
+func enter(host):
 	return
 
 func exit(host):
