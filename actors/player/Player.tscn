@@ -13,7 +13,7 @@
 [ext_resource path="res://actors/player/states/combat/stagger.gd" type="Script" id=11]
 [ext_resource path="res://actors/player/states/die.gd" type="Script" id=12]
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "actor",
 ] instance=ExtResource( 1 )]
 

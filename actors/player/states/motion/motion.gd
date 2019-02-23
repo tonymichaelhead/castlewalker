@@ -13,7 +13,6 @@ func get_input_direction():
 	
 	if input_direction and owner.look_direction != input_direction:
 		owner.last_move_direction = input_direction
-		emit_signal('direction_changed', input_direction) # probably don't need?
 		owner.look_direction = input_direction
 	
 	return input_direction

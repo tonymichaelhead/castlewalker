@@ -1,6 +1,6 @@
 extends Node
 
-#signal state_changed # do i need?
+signal state_changed(current_state)
 
 var current_state = null
 # IMPLEMENT!!

@@ -1,7 +1,5 @@
 extends 'on-ground.gd'
 
-signal direction_changed
-
 
 func enter():
 	speed = 0.0
