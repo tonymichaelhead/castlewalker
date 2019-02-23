@@ -25,25 +25,25 @@ func initialize(speed, velocity):
 	air_velocity = velocity
 	
 
-func enter(host):
-	var tween_node = host.get_node("Tween")
+func enter():
+	var tween_node = owner.get_node("Tween")
 	tween_node.interpolate_method(self, '_animate_jump_height', 0, 1, JUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween_node.start()
 	timer = 0.0
 	
 	
-func update(host, delta):
-	var input_direction = get_input_direction(host)
+func update(delta):
+	var input_direction = get_input_direction()
 	
 	timer += delta
 	if timer >= JUMP_DURATION:
 		return 'move'
 	
-	jump(host, delta, input_direction)	
-	host.animation_switch("idle")
+	jump(delta, input_direction)	
+	owner.animation_switch("idle")
 
 
-func jump(host, delta, input_direction):
+func jump(delta, input_direction):
 	if input_direction:
 		air_speed += AIR_ACCELERATION * delta
 	else:
@@ -54,7 +54,7 @@ func jump(host, delta, input_direction):
 	var steering_velocity = (target_velocity - air_velocity).normalized() * AIR_STEERING_POWER
 	air_velocity += steering_velocity
 	
-	host.move_and_slide(air_velocity)
+	owner.move_and_slide(air_velocity)
 	owner.emit_signal('position_changed', owner.position)
 
 

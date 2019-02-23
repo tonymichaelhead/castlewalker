@@ -88,7 +88,6 @@ _sections_unfolded = [ "Material", "Sort" ]
 [node name="Player" parent="YSort" index="0" instance=ExtResource( 10 )]
 
 position = Vector2( 350, 150 )
-weapon_path = "res://actors/weapon/Weapon.tscn"
 
 [node name="Skeleton" parent="YSort" index="1" instance=ExtResource( 11 )]
 

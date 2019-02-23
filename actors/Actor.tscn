@@ -6,8 +6,6 @@
 [ext_resource path="res://actors/weapon/weapon-pivot.gd" type="Script" id=4]
 [ext_resource path="res://actors/shadow.png" type="Texture" id=5]
 
-
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "SETUP"
@@ -1130,7 +1128,6 @@ collision_mask = 9
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
-knockback_force = 10.0
 weapon_path = ""
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]

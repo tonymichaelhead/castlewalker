@@ -4,7 +4,7 @@ export(float) var knockback_force = 10.0
 const KNOCKBACK_DURATION = 0.4
 
 
-func enter(host):
+func enter():
 	owner.get_node('AnimationPlayer').play('stagger')
 	owner.get_node('Tween').interpolate_property(
 		owner, 

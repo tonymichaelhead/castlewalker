@@ -7,16 +7,16 @@ extends Node
 
 signal finished(next_state_name)
 
-func enter(host):
+func enter():
 	return
 
-func exit(host):
+func exit():
 	return
 
 func handle_input(event):
 	return
 
-func update(host, delta):
+func update(delta):
 	return
 
 func _on_animation_finished(anim_name):

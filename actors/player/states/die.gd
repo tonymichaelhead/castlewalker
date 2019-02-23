@@ -1,7 +1,7 @@
 extends "res://utils/state/state.gd"
 
 
-func enter(host):
+func enter():
 	owner.set_dead(true)
 	owner.get_node('AnimationPlayer').play('die')
 

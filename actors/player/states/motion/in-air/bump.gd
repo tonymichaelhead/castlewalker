@@ -8,17 +8,17 @@ var height = 0.0 setget set_height
 
 var timer = 0.0
 
-func enter(host):
+func enter():
 	owner.get_node('AnimationPlayer').stop()
 	
-	var tween_node = host.get_node('Tween')
-	tween_node.interpolate_property(host, 'position', host.position, host.position + BUMP_DISTANCE * -host.last_move_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	var tween_node = owner.get_node('Tween')
+	tween_node.interpolate_property(owner, 'position', owner.position, owner.position + BUMP_DISTANCE * -owner.last_move_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween_node.interpolate_method(self, '_animate_bump_height', 0, 1, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween_node.start()
 	timer = 0.0
 
 
-func update(host, delta):
+func update(delta):
 	timer += delta
 	if timer >= BUMP_DURATION:
 		return 'idle'
