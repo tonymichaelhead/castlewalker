@@ -1180,7 +1180,7 @@ tracks/6/keys = {
 "values": [ 4, 6 ]
 }
 
-[node name="Skeleton" type="KinematicBody2D" index="0" groups=[
+[node name="Skeleton" type="KinematicBody2D" groups=[
 "actor",
 "monster",
 ]]

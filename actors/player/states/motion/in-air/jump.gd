@@ -55,6 +55,7 @@ func jump(host, delta, input_direction):
 	air_velocity += steering_velocity
 	
 	host.move_and_slide(air_velocity)
+	owner.emit_signal('position_changed', owner.position)
 
 
 func get_input_direction(host):

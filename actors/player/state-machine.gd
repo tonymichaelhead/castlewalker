@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal state_changed # do i need?
 signal direction_changed
+signal position_changed
 signal died
 
 var look_direction = Vector2(1, 0) setget set_look_direction
@@ -84,7 +85,6 @@ func _change_state(state_name):
 
 
 func take_damage(source, amount):
-	print('taking damage')
 	if self.is_a_parent_of(source):
 		return
 	knockback_direction = (global_position - source.global_position).normalized()

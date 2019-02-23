@@ -1,6 +1,5 @@
 extends 'on-ground.gd'
 
-signal position_changed
 signal direction_changed
 
 export(float) var MAX_WALK_SPEED = 200
@@ -31,7 +30,7 @@ func update(host, delta):
 	var collision_info = move(host, speed, input_direction)
 	host.animation_switch("walk")
 
-	emit_signal('position_changed', host.position)
+	owner.emit_signal('position_changed', owner.position)
 	if collision_info:
 		var collider = collision_info.collider
 		if speed == MAX_RUN_SPEED and collider.is_in_group('environment'):
