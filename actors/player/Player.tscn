@@ -3,7 +3,7 @@
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/player/player-controller.gd" type="Script" id=2]
 [ext_resource path="res://actors/player/body.png" type="Texture" id=3]
-[ext_resource path="res://actors/player/state-machine.gd" type="Script" id=4]
+[ext_resource path="res://actors/player/player-state-machine.gd" type="Script" id=4]
 [ext_resource path="res://actors/player/states/motion/on-ground/idle.gd" type="Script" id=5]
 [ext_resource path="res://actors/player/states/motion/on-ground/move.gd" type="Script" id=6]
 [ext_resource path="res://actors/player/states/motion/in-air/bump.gd" type="Script" id=7]
@@ -13,7 +13,7 @@
 [ext_resource path="res://actors/player/states/combat/stagger.gd" type="Script" id=11]
 [ext_resource path="res://actors/player/states/die.gd" type="Script" id=12]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "actor",
 ] instance=ExtResource( 1 )]
 
