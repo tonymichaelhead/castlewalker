@@ -4,8 +4,8 @@ func enter():
 	if not owner.weapon:
 		print('not weapon')
 		return 'idle'
-
-	owner.weapon.connect("attack_finished", self, "_on_Weapon_attack_finished")
+	if not owner.weapon.is_connected("attack_finished", self, "_on_Weapon_attack_finished"):
+		owner.weapon.connect("attack_finished", self, "_on_Weapon_attack_finished")
 	owner.weapon.attack()
 	owner.get_node('AnimationPlayer').play("idle")
 	owner.set_physics_process(false)

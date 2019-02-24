@@ -82,7 +82,6 @@ func set_ready_for_next_attack():
 	
 
 func _on_body_entered(body):
-	print('attacked')
 	if body.get_rid().get_id() in hit_objects or body.is_a_parent_of(self):
 		return
 	hit_objects.append(body.get_rid().get_id())
