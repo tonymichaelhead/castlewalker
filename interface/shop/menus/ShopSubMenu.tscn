@@ -2,7 +2,7 @@
 
 [ext_resource path="res://interface/theme/default.theme" type="Theme" id=1]
 [ext_resource path="res://interface/shop/menus/ShopSubMenu.gd" type="Script" id=2]
-[ext_resource path="res://interface/shop/panels/shop-items-list.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/shop/menus/ShopItemsList.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/shop/panels/InfoPanel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/shop/panels/InfoPanel.gd" type="Script" id=5]
 [ext_resource path="res://interface/shop/panels/DescriptionPanel.tscn" type="PackedScene" id=6]
@@ -43,7 +43,7 @@ size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="ItemsList" parent="Row" index="0" instance=ExtResource( 3 )]
+[node name="ShopItemsList" parent="Row" index="0" instance=ExtResource( 3 )]
 
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -58,7 +58,5 @@ script = ExtResource( 5 )
 [node name="DescriptionPanel" parent="." index="1" instance=ExtResource( 6 )]
 
 script = ExtResource( 7 )
-
-[connection signal="focused_button_changed" from="Row/ItemsList" to="Row/InfoPanel" method="_on_ItemsList_focused_button_changed"]
 
 
