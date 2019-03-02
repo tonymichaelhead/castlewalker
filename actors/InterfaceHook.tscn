@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://actors/interface-hook.gd" type="Script" id=1]
 
 [node name="InterfaceHook" type="RemoteTransform2D"]
 
@@ -8,6 +10,7 @@ use_global_coordinates = true
 update_position = true
 update_rotation = false
 update_scale = false
-_sections_unfolded = [ "Transform", "Update" ]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Transform", "Update", "Visibility", "Z Index" ]
 
 

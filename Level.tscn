@@ -9,13 +9,13 @@
 [ext_resource path="res://inventory/items/equipment/sword/Sword.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tileset/maps/Test.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tileset/Castle.tres" type="TileSet" id=9]
-[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://monsters/skeleton/Skeleton.tscn" type="PackedScene" id=11]
-[ext_resource path="res://monsters/hornet/Hornet.tscn" type="PackedScene" id=12]
-[ext_resource path="res://monsters/dummy/Dummy.tscn" type="PackedScene" id=13]
-[ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=14]
-[ext_resource path="res://interface/LifebarBuilder.tscn" type="PackedScene" id=15]
-[ext_resource path="res://interface/player_gui/life_bar/Lifebar.tscn" type="PackedScene" id=16]
+[ext_resource path="res://monsters/skeleton/Skeleton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://monsters/hornet/Hornet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://monsters/dummy/Dummy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://interface/LifebarBuilder.tscn" type="PackedScene" id=14]
+[ext_resource path="res://interface/player_gui/life_bar/Lifebar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -85,32 +85,28 @@ _sections_unfolded = [ "Cell" ]
 sort_enabled = true
 _sections_unfolded = [ "Material", "Sort" ]
 
-[node name="Player" parent="YSort" index="0" instance=ExtResource( 10 )]
+[node name="Skeleton" parent="YSort" index="0" instance=ExtResource( 10 )]
 
-position = Vector2( 350, 150 )
+position = Vector2( -100, 480 )
 
-[node name="Skeleton" parent="YSort" index="1" instance=ExtResource( 11 )]
+[node name="Skeleton2" parent="YSort" index="1" instance=ExtResource( 10 )]
 
-position = Vector2( 140, 610 )
+position = Vector2( 910, 250 )
 
-[node name="Skeleton2" parent="YSort" index="2" instance=ExtResource( 11 )]
-
-position = Vector2( 1170, 390 )
-
-[node name="Hornet" parent="YSort" index="3" instance=ExtResource( 12 )]
+[node name="Hornet" parent="YSort" index="2" instance=ExtResource( 11 )]
 
 position = Vector2( 1120, 630 )
 MAX_FLY_SPEED = 200.0
 
-[node name="Dummy" parent="YSort" index="4" instance=ExtResource( 13 )]
+[node name="Dummy" parent="YSort" index="3" instance=ExtResource( 12 )]
 
-position = Vector2( 900, 70 )
+position = Vector2( 520, 90 )
 
-[node name="Rock" parent="." index="5" instance=ExtResource( 14 )]
+[node name="Player" parent="YSort" index="4" instance=ExtResource( 13 )]
 
-position = Vector2( 200, 350 )
+position = Vector2( 350, 150 )
 
-[node name="Interface" type="CanvasLayer" parent="." index="6"]
+[node name="Interface" type="CanvasLayer" parent="." index="5"]
 
 layer = 50
 offset = Vector2( 0, 0 )
@@ -118,10 +114,11 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="LifebarBuilder" parent="Interface" index="0" instance=ExtResource( 15 )]
+[node name="LifebarBuilder" parent="Interface" index="0" instance=ExtResource( 14 )]
 
 [node name="PlayerGUI" type="Control" parent="Interface" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -138,7 +135,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Lifebar" parent="Interface/PlayerGUI" index="0" instance=ExtResource( 16 )]
+[node name="Lifebar" parent="Interface/PlayerGUI" index="0" instance=ExtResource( 15 )]
 
 margin_left = 10.0
 margin_top = 10.0
@@ -146,6 +143,10 @@ margin_right = 406.0
 margin_bottom = 63.0
 rect_scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Rect" ]
+
+[node name="Rock" parent="." index="6" instance=ExtResource( 16 )]
+
+position = Vector2( 200, 350 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." index="7"]
 

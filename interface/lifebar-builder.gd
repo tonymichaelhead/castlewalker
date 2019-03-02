@@ -1,8 +1,9 @@
 extends Node
 
-export(PackedScene) var Lifebar
+const Lifebar = preload("res://interface/HookableLifebar.tscn")
 
 func _ready():
+#func initialize():
 	for actor in get_tree().get_nodes_in_group("actor"):
 		create_lifebar(actor)
 	for spawner in get_tree().get_nodes_in_group("monster_spawner"):
@@ -11,7 +12,6 @@ func _ready():
 		
 func on_MonsterSpawner_spawned_monster(monster_node):
 	create_lifebar(monster_node)	
-		
 
 
 func create_lifebar(actor):	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://inventory/ItemDatabase.gd" type="Script" id=1]
 [ext_resource path="res://inventory/items/usable/potions/BaseHealthPotion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/icons/potion_health.png" type="Texture" id=3]
 [ext_resource path="res://inventory/items/equipment/sword/Sword.tscn" type="PackedScene" id=4]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/FireballScroll.tscn" type="PackedScene" id=5]
 
 [node name="ItemDatabase" type="Node"]
 
@@ -25,5 +26,10 @@ description = "A health potion of 5 life points"
 HEAL_AMOUNT = 5
 
 [node name="Sword" parent="." index="2" instance=ExtResource( 4 )]
+
+[node name="FireballScroll" parent="." index="3" instance=ExtResource( 5 )]
+
+price = 100
+amount = 10
 
 

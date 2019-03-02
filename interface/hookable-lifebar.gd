@@ -17,8 +17,12 @@ func initialize(actor):
 		return
 	
 	var hook = actor.get_node("InterfaceHook")
-	self.global_position = hook.global_position
-	hook.remote_path = NodePath(hook.get_path_to(self))
+#	print(hook.position)
+	print('hookable')
+	print(hook.name)
+	print(hook.global_position)
+	global_position = hook.global_position
+	hook.remote_path = hook.get_path_to(self)
 	
 	var health_node = actor.get_node("Health")
 	health_node.connect("health_changed", self, "_on_Actor_health_changed")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/player/player-controller.gd" type="Script" id=2]
@@ -12,8 +12,10 @@
 [ext_resource path="res://actors/player/states/combat/casting-fire.gd" type="Script" id=10]
 [ext_resource path="res://actors/player/states/combat/stagger.gd" type="Script" id=11]
 [ext_resource path="res://actors/player/states/die.gd" type="Script" id=12]
+[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=13]
+[ext_resource path="res://shop/purse/Purse.tscn" type="PackedScene" id=14]
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "actor",
 ] instance=ExtResource( 1 )]
 
@@ -21,16 +23,42 @@ scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 weapon_path = "res://actors/weapon/Weapon.tscn"
 
-[node name="AnimationPlayer" parent="." index="0"]
+[node name="Camera2D" type="Camera2D" parent="." index="0"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform" ]
+
+[node name="AnimationPlayer" parent="." index="1"]
 
 playback_speed = 3.0
 
-[node name="HitBox" parent="." index="4"]
+[node name="HitBox" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 1.49527, 3.26241 )
 
-[node name="Pivot" parent="." index="5"]
+[node name="Pivot" parent="." index="6"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -40,12 +68,12 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 texture = ExtResource( 3 )
 frame = 8
 
-[node name="WeaponPivot" parent="." index="6"]
+[node name="WeaponPivot" parent="." index="7"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="StateMachine" type="Node" parent="." index="9"]
+[node name="StateMachine" type="Node" parent="." index="10"]
 
 editor/display_folded = true
 script = ExtResource( 4 )
@@ -83,31 +111,12 @@ knockback_force = 10.0
 
 script = ExtResource( 12 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="10"]
+[node name="Inventory" parent="." index="11" instance=ExtResource( 13 )]
 
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Editor", "Smoothing", "Transform" ]
+[node name="Purse" parent="." index="12" instance=ExtResource( 14 )]
+
+coins = 1000
+MAXIMUM = 1000
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
 

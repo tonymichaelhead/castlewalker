@@ -3,10 +3,18 @@ extends "res://actors/actor.gd"
 var knockback_direction = Vector2()
 
 onready var state_machine = $StateMachine
+#onready var camera = $Camera
 
 func _ready():
 	state_machine.current_state = state_machine.states_map['idle']
 	state_machine.start()
+
+
+#func reset(target_global_position):
+#	.reset(target_global_position)
+##	anim_player.play('SETUP') # implement?
+#	camera.offset = Vector2()
+#	camera.current = true
 
 
 func move(velocity):
