@@ -160,4 +160,6 @@ _sections_unfolded = [ "Rect", "Size Flags" ]
 
 [connection signal="value_changed" from="VBoxContainer/Slider/HSlider" to="VBoxContainer/Slider/Amount" method="_on_HSlider_value_changed"]
 
+[connection signal="pressed" from="VBoxContainer/OkButton" to="." method="_on_OkButton_pressed"]
+
 
