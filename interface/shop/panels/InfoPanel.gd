@@ -24,9 +24,9 @@ func _on_focused_Item_amount_changed(item):
 	update_amount(item.amount)
 
 
-func _on_ItemsList_focused_button_changed(button):
+func _on_ShopItemsList_focused_button_changed(button):
 	update_amount(button.amount)
 
 
-func _on_ItemsList_item_amount_changed(amount):
+func _on_ShopItemsList_item_amount_changed(amount):
 	update_amount(amount)

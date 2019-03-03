@@ -12,8 +12,11 @@ onready var purse = $Purse
 
 func buy_from(actor, item, amount=1):
 	amount = clamp(amount, 1, MAX_TRANSACTION_COUNT)
-	var transaction_value = max(get_buy_value(item) * amount, purse.coins)
-	
+#	var transaction_value = max(get_buy_value(item) * amount, purse.coins) why???
+	var transaction_value = get_buy_value(item) * amount
+	print(amount)
+	print(get_buy_value(item))
+	print(transaction_value)
 	actor.get_node("Inventory").trash(item, amount)
 	actor.get_node("Purse").add_coins(transaction_value)
 	

@@ -59,4 +59,8 @@ script = ExtResource( 5 )
 
 script = ExtResource( 7 )
 
+[connection signal="focused_button_changed" from="Row/ShopItemsList" to="Row/InfoPanel" method="_on_ShopItemsList_focused_button_changed"]
+
+[connection signal="item_amount_changed" from="Row/ShopItemsList" to="Row/InfoPanel" method="_on_ShopItemsList_item_amount_changed"]
+
 

@@ -37,4 +37,4 @@ func _on_ItemButton_pressed(shop, buyer, item):
 	focused_item.grab_focus()
 	if amount == 0:
 		return
-	shop.call(ACTION, buyer, item, 1)
+	shop.call(ACTION, buyer, item, amount)
