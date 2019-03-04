@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/Fireball.gd" type="Script" id=1]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/fireball.gd" type="Script" id=1]
 [ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/explosions/Explosion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/FireballParticles.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="CircleShape2D" id=1]
 

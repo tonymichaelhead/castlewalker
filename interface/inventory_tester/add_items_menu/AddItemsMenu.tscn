@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interface/theme/default.theme" type="Theme" id=1]
-[ext_resource path="res://interface/inventory_tester/add_items_menu/AddItemsMenu.gd" type="Script" id=2]
+[ext_resource path="res://interface/inventory_tester/add_items_menu/add-items-menu.gd" type="Script" id=2]
 [ext_resource path="res://interface/inventory_tester/add_items_menu/AddItemWidget.tscn" type="PackedScene" id=3]
+
 
 
 

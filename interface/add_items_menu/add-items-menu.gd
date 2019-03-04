@@ -1,4 +1,4 @@
-extends Control
+\extends Control
 
 export(PackedScene) var AddItemWidget
 

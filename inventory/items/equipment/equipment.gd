@@ -1,4 +1,4 @@
-extends '../Item.gd'
+extends '../item.gd'
 
 export(int) var STRENGTH = 0
 export(int) var MAGIC = 0

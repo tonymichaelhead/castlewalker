@@ -1,11 +1,12 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://shop/Shop.gd" type="Script" id=1]
+[ext_resource path="res://shop/shop.gd" type="Script" id=1]
 [ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=2]
 [ext_resource path="res://inventory/items/equipment/sword/Sword.tscn" type="PackedScene" id=3]
 [ext_resource path="res://inventory/items/usable/scroll_fireball/FireballScroll.tscn" type="PackedScene" id=4]
 [ext_resource path="res://inventory/items/usable/potions/restore_health/StrongHealthPotion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://shop/purse/Purse.tscn" type="PackedScene" id=6]
+
 
 [node name="Shop" type="Node"]
 

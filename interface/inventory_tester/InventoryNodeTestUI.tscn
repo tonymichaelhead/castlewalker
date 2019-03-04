@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://interface/inventory_tester/InventoryTestUI.gd" type="Script" id=1]
+[ext_resource path="res://interface/inventory_tester/inventory-test-ui.gd" type="Script" id=1]
 [ext_resource path="res://interface/inventory_tester/ItemsList.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/inventory_tester/add_items_menu/AddItemsMenu.tscn" type="PackedScene" id=3]
+
 
 
 

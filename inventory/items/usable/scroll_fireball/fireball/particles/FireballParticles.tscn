@@ -2,10 +2,11 @@
 
 [ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/fireball/fireball.material" type="Material" id=1]
 [ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/sprites/smoke_clouds.png" type="Texture" id=2]
-[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/ParticlesToggle.gd" type="Script" id=3]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/particles-toggle.gd" type="Script" id=3]
 [ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/assets/gradient_ramps/sparkles_small.tres" type="Gradient" id=4]
 [ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/sprites/circle.png" type="Texture" id=5]
 [ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/assets/gradient_ramps/sparkles.tres" type="Gradient" id=6]
+
 
 
 

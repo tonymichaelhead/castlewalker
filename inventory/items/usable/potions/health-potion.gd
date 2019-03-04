@@ -1,4 +1,4 @@
-extends "res://inventory/items/Item.gd"
+extends "res://inventory/items/item.gd"
 
 export(int) var HEAL_AMOUNT = 20
 

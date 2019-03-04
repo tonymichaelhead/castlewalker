@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://interface/theme/default.theme" type="Theme" id=1]
-[ext_resource path="res://interface/shop/menus/ShopSubMenu.gd" type="Script" id=2]
+[ext_resource path="res://interface/shop/menus/shop-sub-menu.gd" type="Script" id=2]
 [ext_resource path="res://interface/shop/menus/ShopItemsList.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/shop/panels/InfoPanel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://interface/shop/panels/InfoPanel.gd" type="Script" id=5]
+[ext_resource path="res://interface/shop/panels/info-panel.gd" type="Script" id=5]
 [ext_resource path="res://interface/shop/panels/DescriptionPanel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://interface/shop/panels/DescriptionPanel.gd" type="Script" id=7]
+[ext_resource path="res://interface/shop/panels/description-panel.gd" type="Script" id=7]
 
 [node name="ShopSubMenu" type="VBoxContainer"]
 

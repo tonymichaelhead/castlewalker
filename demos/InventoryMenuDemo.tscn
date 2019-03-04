@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://demos/InventoryMenuDemo.gd" type="Script" id=1]
+[ext_resource path="res://demos/inventory-menu-demo.gd" type="Script" id=1]
 [ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=2]
 [ext_resource path="res://inventory/items/usable/scroll_fireball/FireballScroll.tscn" type="PackedScene" id=3]
 [ext_resource path="res://inventory/items/usable/potions/restore_health/MinorHealthPotion.tscn" type="PackedScene" id=4]
@@ -9,6 +9,7 @@
 [ext_resource path="res://refactor/Actor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interface/add_items_menu/AddItemsMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interface/inventory/ItemsMenu.tscn" type="PackedScene" id=9]
+
 
 
 [node name="InventoryDemo" type="Node"]
