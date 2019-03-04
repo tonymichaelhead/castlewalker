@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/potion_health.png-8db8ca1fcbecd337ddb5ebbe468414a6.stex"
+path="res://.import/background.png-62efda1a07fd52ccf13fb5c00abc7e8c.stex"
 
 [deps]
 
-source_file="res://interface/icons/potion_health.png"
-dest_files=[ "res://.import/potion_health.png-8db8ca1fcbecd337ddb5ebbe468414a6.stex" ]
+source_file="res://interface/gui/lifebar/background.png"
+dest_files=[ "res://.import/background.png-62efda1a07fd52ccf13fb5c00abc7e8c.stex" ]
 
 [params]
 

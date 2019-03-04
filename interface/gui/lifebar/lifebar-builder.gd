@@ -1,6 +1,6 @@
 extends Node
 
-const Lifebar = preload("res://interface/HookableLifebar.tscn")
+const Lifebar = preload("res://interface/gui/lifebar/HookableLifebar.tscn")
 
 func _ready():
 #func initialize():

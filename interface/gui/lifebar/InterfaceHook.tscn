@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://actors/interface-hook.gd" type="Script" id=1]
+[ext_resource path="res://interface/gui/lifebar/interface-hook.gd" type="Script" id=1]
+
 
 [node name="InterfaceHook" type="RemoteTransform2D"]
 

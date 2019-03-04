@@ -2,8 +2,9 @@
 
 [ext_resource path="res://interface/theme/default.theme" type="Theme" id=1]
 [ext_resource path="res://interface/inventory_tester/add_items_menu/add-item-widget.gd" type="Script" id=2]
-[ext_resource path="res://interface/icons/add.png" type="Texture" id=3]
-[ext_resource path="res://interface/icons/remove.png" type="Texture" id=4]
+[ext_resource path="res://interface/theme/icons/add.png" type="Texture" id=3]
+[ext_resource path="res://interface/theme/icons/remove.png" type="Texture" id=4]
+
 
 
 

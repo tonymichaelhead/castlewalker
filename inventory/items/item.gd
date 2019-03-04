@@ -3,7 +3,7 @@ extends Node
 signal amount_changed(amount)
 signal depleted()
 
-export(Texture) var icon = preload("res://interface/icons/purse.png")
+export(Texture) var icon = preload("res://interface/theme/icons/purse.png")
 export(String) var display_name = "Item"
 export(String, MULTILINE) var description = "The base item class"
 

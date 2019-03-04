@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cancel.png-c77a805f5d541da820c458b8c1b71152.stex"
+path="res://.import/bg.png-4137f69cffc7cfbd089694c7a17196f3.stex"
 
 [deps]
 
-source_file="res://interface/icons/cancel.png"
-dest_files=[ "res://.import/cancel.png-c77a805f5d541da820c458b8c1b71152.stex" ]
+source_file="res://interface/gui/player/life_bar/bg.png"
+dest_files=[ "res://.import/bg.png-4137f69cffc7cfbd089694c7a17196f3.stex" ]
 
 [params]
 

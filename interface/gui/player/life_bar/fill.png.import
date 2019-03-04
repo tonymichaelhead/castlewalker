@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/purse.png-3fda758a477238b25057ce1ef294a1dc.stex"
+path="res://.import/fill.png-6d81f3dffced581fbfcd68a8ff5225b0.stex"
 
 [deps]
 
-source_file="res://interface/icons/purse.png"
-dest_files=[ "res://.import/purse.png-3fda758a477238b25057ce1ef294a1dc.stex" ]
+source_file="res://interface/gui/player/life_bar/fill.png"
+dest_files=[ "res://.import/fill.png-6d81f3dffced581fbfcd68a8ff5225b0.stex" ]
 
 [params]
 

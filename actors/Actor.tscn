@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://actors/actor.gd" type="Script" id=1]
-[ext_resource path="res://actors/health.gd" type="Script" id=2]
+[ext_resource path="res://actors/health/health.gd" type="Script" id=2]
 [ext_resource path="res://actors/body.png" type="Texture" id=3]
 [ext_resource path="res://actors/weapon/weapon-pivot.gd" type="Script" id=4]
 [ext_resource path="res://actors/shadow.png" type="Texture" id=5]

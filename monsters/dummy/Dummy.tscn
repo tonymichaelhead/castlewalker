@@ -1,11 +1,13 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://monsters/dummy/dummy.gd" type="Script" id=1]
-[ext_resource path="res://actors/health.gd" type="Script" id=2]
-[ext_resource path="res://actors/InterfaceHook.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/health/health.gd" type="Script" id=2]
+[ext_resource path="res://interface/gui/lifebar/InterfaceHook.tscn" type="PackedScene" id=3]
 [ext_resource path="res://monsters/dummy/body.png" type="Texture" id=4]
 [ext_resource path="res://actors/weapon/weapon-pivot.gd" type="Script" id=5]
 [ext_resource path="res://actors/shadow.png" type="Texture" id=6]
+
+
 
 
 [sub_resource type="Animation" id=1]

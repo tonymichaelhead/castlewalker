@@ -13,8 +13,8 @@
 [ext_resource path="res://monsters/hornet/Hornet.tscn" type="PackedScene" id=11]
 [ext_resource path="res://monsters/dummy/Dummy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=13]
-[ext_resource path="res://interface/LifebarBuilder.tscn" type="PackedScene" id=14]
-[ext_resource path="res://interface/player_gui/life_bar/Lifebar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://interface/gui/lifebar/LifebarBuilder.tscn" type="PackedScene" id=14]
+[ext_resource path="res://interface/gui/player/life_bar/Lifebar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=16]
 
 [sub_resource type="CircleShape2D" id=1]

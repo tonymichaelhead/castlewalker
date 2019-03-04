@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/potion_mana.png-6007180d60d0938ff7b63e7dc953b130.stex"
+path="res://.import/fill.png-b3e6044072b4f216e075877da6e81969.stex"
 
 [deps]
 
-source_file="res://interface/icons/potion_mana.png"
-dest_files=[ "res://.import/potion_mana.png-6007180d60d0938ff7b63e7dc953b130.stex" ]
+source_file="res://interface/gui/lifebar/fill.png"
+dest_files=[ "res://.import/fill.png-b3e6044072b4f216e075877da6e81969.stex" ]
 
 [params]
 
