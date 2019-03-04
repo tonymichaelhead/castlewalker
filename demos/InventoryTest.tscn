@@ -2,12 +2,10 @@
 
 [ext_resource path="res://demos/inventory-test.gd" type="Script" id=1]
 [ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=2]
-[ext_resource path="res://refactor/Actor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/inventory_tester/InventoryNodeTestUI.tscn" type="PackedScene" id=4]
 
-
-
-[node name="InventoryTester" type="Node" index="0"]
+[node name="InventoryTester" type="Node"]
 
 script = ExtResource( 1 )
 
