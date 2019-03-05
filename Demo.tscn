@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://core/game.gd" type="Script" id=1]
+[ext_resource path="res://audio/MusicPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://audio/music/DissonantWaltz.ogg" type="AudioStream" id=3]
+[ext_resource path="res://audio/music-player.gd" type="Script" id=4]
+[ext_resource path="res://core/level-loader.gd" type="Script" id=5]
+[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=6]
+
+[node name="Game" type="Node" index="0"]
+
+pause_mode = 2
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="MusicPlayer" parent="." index="0" instance=ExtResource( 2 )]
+
+stream = ExtResource( 3 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="LevelLoader" type="Node" parent="." index="1"]
+
+pause_mode = 1
+script = ExtResource( 5 )
+_sections_unfolded = [ "Pause" ]
+LEVEL_START = "res://levels/DemoLevel.tscn"
+Player = ExtResource( 6 )
+
+[node name="Overlays" type="CanvasLayer" parent="." index="2"]
+
+pause_mode = 2
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="TransitionColor" type="ColorRect" parent="Overlays" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+
+

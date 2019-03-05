@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DissonantWaltz.ogg-e75b82666b01efa86173ae25776da04a.oggstr"
+
+[deps]
+
+source_file="res://audio/music/DissonantWaltz.ogg"
+dest_files=[ "res://.import/DissonantWaltz.ogg-e75b82666b01efa86173ae25776da04a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
