@@ -26,6 +26,7 @@ func change_level(scene_path):
 func get_doors():
 	var doors = []
 	for door in get_tree().get_nodes_in_group("doors"):
+		print('found door')
 		if not map.is_a_parent_of(door):
 			continue
 		doors.append(door)

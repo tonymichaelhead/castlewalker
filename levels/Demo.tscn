@@ -7,7 +7,7 @@
 [ext_resource path="res://inventory/items/usable/potions/restore_health/StrongHealthPotion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://inventory/items/usable/potions/restore_health/MinorHealthPotion.tscn" type="PackedScene" id=6]
 [ext_resource path="res://inventory/items/equipment/sword/Sword.tscn" type="PackedScene" id=7]
-[ext_resource path="res://tileset/maps/Test.tscn" type="PackedScene" id=8]
+[ext_resource path="res://levels/Test.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tileset/Castle.tres" type="TileSet" id=9]
 [ext_resource path="res://monsters/skeleton/Skeleton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://monsters/hornet/Hornet.tscn" type="PackedScene" id=11]
@@ -16,6 +16,8 @@
 [ext_resource path="res://interface/gui/lifebar/LifebarBuilder.tscn" type="PackedScene" id=14]
 [ext_resource path="res://interface/gui/player/life_bar/Lifebar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://environment/Rock.tscn" type="PackedScene" id=16]
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 

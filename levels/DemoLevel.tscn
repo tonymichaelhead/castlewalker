@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tileset/Castle.tres" type="TileSet" id=1]
 [ext_resource path="res://core/world/PlayerSpawningPoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://core/world/TransparentDoor.tscn" type="PackedScene" id=3]
 
 [node name="DemoLevel" type="TileMap"]
 
@@ -27,5 +28,9 @@ _sections_unfolded = [ "Cell" ]
 [node name="PlayerSpawningPoint" parent="." index="0" instance=ExtResource( 2 )]
 
 LINE_COLOR = Color( 0.784739, 0.16983, 0.820312, 1 )
+
+[node name="TransparentDoor" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 80, 40 )
 
 
