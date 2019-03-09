@@ -21,7 +21,8 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-map_path = "res://levels/Test.tscn"
+map_path = "Null"
+ACTIVE_AT_START = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

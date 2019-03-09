@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://core/game.gd" type="Script" id=1]
 [ext_resource path="res://audio/MusicPlayer.tscn" type="PackedScene" id=2]
@@ -6,15 +6,22 @@
 [ext_resource path="res://audio/music-player.gd" type="Script" id=4]
 [ext_resource path="res://core/level-loader.gd" type="Script" id=5]
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://vfx/TransitionColor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/interface.gd" type="Script" id=8]
+[ext_resource path="res://interface/gui/player/PlayerGUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interface/shop/ShopMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://interface/PauseMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://interface/gui/lifebar/LifebarBuilder.tscn" type="PackedScene" id=12]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
-pause_mode = 2
+pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="MusicPlayer" parent="." index="0" instance=ExtResource( 2 )]
 
+pause_mode = 2
 stream = ExtResource( 3 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Pause" ]
@@ -24,8 +31,11 @@ _sections_unfolded = [ "Pause" ]
 pause_mode = 1
 script = ExtResource( 5 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://levels/DemoLevel.tscn"
-Player = ExtResource( 6 )
+LEVEL_START = "res://levels/Test2.tscn"
+
+[node name="Player" parent="LevelLoader" index="0" instance=ExtResource( 6 )]
+
+_sections_unfolded = [ "Collision", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 
 [node name="Overlays" type="CanvasLayer" parent="." index="2"]
 
@@ -37,21 +47,37 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="TransitionColor" type="ColorRect" parent="Overlays" index="0"]
+[node name="TransitionColor" parent="Overlays" index="0" instance=ExtResource( 7 )]
+
+[node name="Interface" type="CanvasLayer" parent="." index="3"]
+
+pause_mode = 2
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 8 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="PlayerGUI" parent="Interface" index="0" instance=ExtResource( 9 )]
+
+_sections_unfolded = [ "Pause" ]
+
+[node name="ShopMenu" parent="Interface" index="1" instance=ExtResource( 10 )]
 
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
+
+[node name="PauseMenu" parent="Interface" index="2" instance=ExtResource( 11 )]
+
+visible = false
+
+[node name="LifebarBuilder" parent="Interface" index="3" instance=ExtResource( 12 )]
+
+_sections_unfolded = [ "Pause" ]
+
+[connection signal="closed" from="Interface/ShopMenu" to="." method="_on_ShopMenu_closed"]
+
+[connection signal="open" from="Interface/ShopMenu" to="." method="_on_ShopMenu_open"]
 
 

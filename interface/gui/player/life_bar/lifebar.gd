@@ -2,7 +2,7 @@ extends Control
 
 var health_current = 0
 
-func _ready():
+func initialize():
 	var health_node
 	for node in get_tree().get_nodes_in_group("actor"):
 		if node.name == "Player":

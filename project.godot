@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="castlewalker"
-run/main_scene="res://Level.tscn"
+run/main_scene="res://Demo.tscn"
 config/icon="res://icon.png"
 
 [autoload]

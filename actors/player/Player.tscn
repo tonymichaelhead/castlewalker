@@ -23,7 +23,7 @@ scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 weapon_path = "res://actors/weapon/Weapon.tscn"
 
-[node name="Camera2D" type="Camera2D" parent="." index="0"]
+[node name="Camera" type="Camera2D" parent="." index="0"]
 
 anchor_mode = 1
 rotating = false
