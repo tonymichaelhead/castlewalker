@@ -1,17 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interface/gui/lifebar/hookable-lifebar.gd" type="Script" id=1]
 [ext_resource path="res://interface/gui/lifebar/background.png" type="Texture" id=2]
 [ext_resource path="res://interface/gui/lifebar/fill.png" type="Texture" id=3]
 
+[node name="HookableLifebar" type="Node2D" index="0" groups=[
+"bars",
+]]
 
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 10.0
-
-[node name="HookableLifebar" type="Node2D"]
-
+visible = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -64,9 +61,5 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Radial Fill", "Rect", "Size Flags", "Visibility" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
-
-shape = SubResource( 1 )
 
 

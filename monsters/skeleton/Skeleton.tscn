@@ -2,12 +2,10 @@
 
 [ext_resource path="res://monsters/skeleton/skeleton.gd" type="Script" id=1]
 [ext_resource path="res://actors/health/health.gd" type="Script" id=2]
-[ext_resource path="res://monsters/skeleton/body.png" type="Texture" id=3]
-[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=4]
-[ext_resource path="res://actors/shadow.png" type="Texture" id=5]
-[ext_resource path="res://interface/gui/lifebar/InterfaceHook.tscn" type="PackedScene" id=6]
-
-
+[ext_resource path="res://interface/gui/lifebar/InterfaceHook.tscn" type="PackedScene" id=3]
+[ext_resource path="res://monsters/skeleton/body.png" type="Texture" id=4]
+[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=5]
+[ext_resource path="res://actors/shadow.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 
@@ -1245,7 +1243,9 @@ polygon = PoolVector2Array( -18, -62, 16, -62, 16, 2, -18, 2 )
 script = ExtResource( 2 )
 max_health = 5
 
-[node name="BodyPivot" type="Position2D" parent="." index="4"]
+[node name="InterfaceHook" parent="." index="4" instance=ExtResource( 3 )]
+
+[node name="BodyPivot" type="Position2D" parent="." index="5"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -1254,7 +1254,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 position = Vector2( -1.16106, -23.5763 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 flip_h = true
 _sections_unfolded = [ "Animation", "Offset", "Transform", "Visibility" ]
 
@@ -1264,20 +1264,20 @@ self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 36.5039, -93.4977 )
 rotation = 0.23906
 scale = Vector2( 0.622744, 0.729785 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Shadow" type="Sprite" parent="." index="5"]
+[node name="Shadow" type="Sprite" parent="." index="6"]
 
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 1, 1, 1, 0.497255 )
 show_behind_parent = true
 position = Vector2( 6.86812, 26.5781 )
 scale = Vector2( 0.988028, 0.384888 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="6"]
+[node name="RayCast2D" type="RayCast2D" parent="." index="7"]
 
 enabled = false
 exclude_parent = true
@@ -1285,13 +1285,11 @@ cast_to = Vector2( 0, 50 )
 collision_mask = 1
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
-[node name="Timer" type="Timer" parent="." index="7"]
+[node name="Timer" type="Timer" parent="." index="8"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
-
-[node name="InterfaceHook" parent="." index="8" instance=ExtResource( 6 )]
 
 

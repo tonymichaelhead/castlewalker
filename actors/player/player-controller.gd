@@ -4,6 +4,7 @@ var knockback_direction = Vector2()
 
 onready var state_machine = $StateMachine
 onready var camera = $Camera
+onready var anim_player = $AnimationPlayer
 
 func _ready():
 	state_machine.current_state = state_machine.states_map['idle']
@@ -12,14 +13,14 @@ func _ready():
 
 func reset(target_global_position):
 	.reset(target_global_position)
-#	anim_player.play('SETUP') # implement?
+	anim_player.play('SETUP') # Probably need to reseet tweening to fix jump through door bug
 	camera.offset = Vector2()
 	camera.current = true
 
 
 func move(velocity):
 	move_and_slide(velocity, Vector2(), 5, 2)
-	emit_signal('position_changed',position)
+	emit_signal('position_changed', position)
 	var slide_count = get_slide_count()
 	return get_slide_collision(slide_count -1) if slide_count else null
 

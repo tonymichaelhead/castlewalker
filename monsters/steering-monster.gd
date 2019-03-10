@@ -12,34 +12,28 @@ export(float) var DEFAULT_SLOW_RADIUS = 200.0
 export(float) var DEFAULT_MAX_SPEED = 300.0
 export(float) var MASS = 8.0
 
-
 export(float) var SLOW_RADIUS = 200
 
 var state = null
 
-var has_target = false
 var spawn_position = Vector2()
-var target_position = Vector2()
 var velocity = Vector2()
 
+var target = null # Actor
 
 func _ready():
-	spawn_position = position
-	
-	$Timer.connect('timeout', self, '_on_Timer_timeout')
-	$Tween.connect('tween_completed', self, '_on_tween_completed')
-	$Health.connect('health_changed', self, '_on_Health_health_changed')
-	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')
-	
-	var target_node = $'/root/Level/YSort/Player'
-	
-	if not target_node:
+	print(global_position)
+	set_as_toplevel(true)
+	spawn_position = global_position
+
+
+func initialize(target_actor):	
+	if not target_actor:
 		print('Missing target node on %s' % get_path())
 		return
-	target_node.connect('position_changed', self, '_on_target_position_changed')
-	target_node.connect('died', self, '_on_target_died')
-	has_target = true
-	
+	target = target_actor
+	target_actor.connect('died', self, '_on_target_died')
+
 
 func follow(velocity, target_position, max_speed):
 	var desired_velocity = (target_position - position).normalized() * max_speed
@@ -80,12 +74,7 @@ func take_damage(source, amount):
 	$Health.take_damage(amount)
 
 
-func _on_target_position_changed(new_position):
-	target_position = new_position
-
-
 func _on_target_died():
-	target_position = Vector2()
-	has_target = false
+	target = null
 
 

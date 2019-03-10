@@ -1,17 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=2]
 
-[ext_resource path="res://interface/gui/lifebar/interface-hook.gd" type="Script" id=1]
+[node name="InterfaceHook" type="RemoteTransform2D" index="0"]
 
-
-[node name="InterfaceHook" type="RemoteTransform2D"]
-
-position = Vector2( 1, -96 )
 remote_path = NodePath("")
 use_global_coordinates = true
 update_position = true
-update_rotation = false
-update_scale = false
-script = ExtResource( 1 )
-_sections_unfolded = [ "Material", "Transform", "Update", "Visibility", "Z Index" ]
+update_rotation = true
+update_scale = true
 
 

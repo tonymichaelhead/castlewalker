@@ -24,7 +24,12 @@ const MAX_BUMP_HEIGHT = 50
 const ATTACK_COOLDOWN_DURATION = 0.6
 
 
-func _ready():
+func initialize(target_actor):
+	.initialize(target_actor)
+	$Timer.connect('timeout', self, '_on_Timer_timeout')
+	$Tween.connect('tween_completed', self, '_on_tween_completed')
+	$Health.connect('health_changed', self, '_on_Health_health_changed')
+	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')
 	_change_state(IDLE)
 
 
@@ -53,11 +58,12 @@ func _change_state(new_state):
 			roam_target_position = spawn_position + Vector2(cos(random_angle) * random_radius, sin(random_angle) * random_radius)
 			roam_slow_radius = spawn_position.distance_to(roam_target_position) / 2
 		SPOT:
+			print('spotted')
 			$AnimationPlayer.play('spot')
 		ATTACK:
 			set_physics_process(false)
 			$AnimationPlayer.stop()
-			var bump_direction = (position - target_position).normalized()
+			var bump_direction = (position - target.position).normalized()
 			$Tween.interpolate_property(self, 'position', position, position + BUMP_DISTANCE * bump_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Tween.interpolate_method(self, '_animate_bump_height', 0, 1, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Tween.start()
@@ -90,10 +96,10 @@ func _physics_process(delta):
 	
 	match current_state:
 		IDLE:
-			var distance_to_target = position.distance_to(target_position)
+			if not target:
+				return
+			var distance_to_target = position.distance_to(target.position)
 			if distance_to_target < SPOT_RANGE:
-				if not has_target:
-					return
 				_change_state(SPOT)
 		ROAM:
 			velocity = arrive_to(velocity, roam_target_position, roam_slow_radius, max_roam_speed)
@@ -101,27 +107,32 @@ func _physics_process(delta):
 			
 			if position.distance_to(roam_target_position) < ARRIVE_DISTANCE:
 				_change_state(IDLE)
-			elif position.distance_to(target_position) < SPOT_RANGE:
-				if not has_target:
-					return
+			elif not target:
+				print('not target')
+				return
+			elif position.distance_to(target.position) < SPOT_RANGE:
 				_change_state(SPOT)
 		RETURN:
 			velocity = arrive_to(velocity, spawn_position, SLOW_RADIUS, max_roam_speed, true)
 			move_and_slide(velocity)
 			if position.distance_to(spawn_position) < ARRIVE_DISTANCE:
 				_change_state(IDLE)
-			elif position.distance_to(target_position) < SPOT_RANGE:
-				if not has_target:
-					return
+			elif not target:
+				return
+			elif position.distance_to(target.position) < SPOT_RANGE:
 				_change_state(SPOT)
 		FOLLOW:
-			velocity = follow(velocity, target_position, max_follow_speed)
+			if not target:
+				_change_state(RETURN)
+				return
+			velocity = follow(velocity, target.position, max_follow_speed)
 			move_and_slide(velocity)
+			
 			if get_slide_count() != 0:
 				var collider = get_slide_collision(0).collider
 				if collider.is_in_group('character'):
 					_change_state(ATTACK)
-			if position.distance_to(target_position) > FOLLOW_RANGE:
+			if position.distance_to(target.position) > FOLLOW_RANGE:
 				_change_state(RETURN)
 
 

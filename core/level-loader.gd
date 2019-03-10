@@ -15,6 +15,7 @@ func initialize():
 
 func change_level(scene_path):	
 	if map:
+		remove_lifebars() # check how GDQUEST does it
 		map.get_ysort_node().remove_child(player)
 		remove_child(map)
 		map.queue_free()
@@ -38,3 +39,9 @@ func get_doors():
 			continue
 		doors.append(door)
 	return doors
+
+
+func remove_lifebars():
+	for bar in get_tree().get_nodes_in_group('bars'):
+		bar.queue_free()
+	

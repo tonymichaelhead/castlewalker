@@ -13,12 +13,16 @@ const BUMP_DISTANCE = 60
 const BUMP_DURATION = 0.2
 const MAX_BUMP_HEIGHT = 50
 
-func _ready():
+func initialize(target_actor):
+	.initialize(target_actor)
+	$Timer.connect('timeout', self, '_on_Timer_timeout')
+	$Tween.connect('tween_completed', self, '_on_tween_completed')
+	$Health.connect('health_changed', self, '_on_Health_health_changed')
+	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')
 	_change_state(IDLE)
 	
 
 func _change_state(new_state):
-	
 	match state:
 		IDLE:
 			$Timer.stop()
@@ -40,7 +44,7 @@ func _change_state(new_state):
 		ATTACK:
 			set_physics_process(false)
 			$AnimationPlayer.stop()
-			var bump_direction = (position - target_position).normalized()
+			var bump_direction = (position - target.position).normalized()
 			$Tween.interpolate_property(self, 'position', position, position + BUMP_DISTANCE * bump_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Tween.interpolate_method(self, '_animate_bump_height', 0, 1, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Tween.start()
@@ -58,13 +62,13 @@ func _physics_process(delta):
 	
 	match current_state:
 		IDLE:
-			if position.distance_to(target_position) < FOLLOW_RANGE:
+			if position.distance_to(target.position) < FOLLOW_RANGE:
 				_change_state(FOLLOW)
 		FOLLOW:
-			if position.distance_to(target_position) > FOLLOW_RANGE:
+			if position.distance_to(target.position) > FOLLOW_RANGE:
 				_change_state(RETURN)
 			
-			velocity = follow(velocity, target_position, MAX_FLY_SPEED)
+			velocity = follow(velocity, target.position, MAX_FLY_SPEED)
 			move_and_slide(velocity)
 			
 			if get_slide_count() == 0:

@@ -1,4 +1,4 @@
-extends Node2D
+ extends Node2D
 
 var max_health = 0 setget set_max_health
 var health = 0 setget set_health
@@ -17,10 +17,7 @@ func initialize(actor):
 		return
 	
 	var hook = actor.get_node("InterfaceHook")
-#	print(hook.position)
-	print('hookable')
-	print(hook.name)
-	print(hook.global_position)
+
 	global_position = hook.global_position
 	hook.remote_path = hook.get_path_to(self)
 	

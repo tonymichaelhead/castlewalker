@@ -9,7 +9,7 @@ func initialize(monsters, monster_spawners):
 	for spawner in monster_spawners:
 		spawner.connect("spawned_monster", self, "on_MonsterSpawner_spawned_monster") # or monster_spawners.connect?
 	
-		
+
 func on_MonsterSpawner_spawned_monster(monster_node):
 	create_lifebar(monster_node)	
 

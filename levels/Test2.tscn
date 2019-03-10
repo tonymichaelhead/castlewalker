@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/level.gd" type="Script" id=1]
 [ext_resource path="res://tileset/Castle.tres" type="TileSet" id=2]
-[ext_resource path="res://core/world/PlayerSpawningPoint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://core/world/TransparentDoor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://monsters/dummy/Dummy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://monsters/skeleton/Skeleton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://core/world/PlayerSpawningPoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://core/world/TransparentDoor.tscn" type="PackedScene" id=6]
 
 [sub_resource type="GDScript" id=1]
 
@@ -32,7 +34,7 @@ func _draw():
 		points.append(point)
 	draw_polyline(points, LINE_COLOR, 4.0)"
 
-[node name="Test2" type="Node2D"]
+[node name="Test2" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -62,12 +64,25 @@ _sections_unfolded = [ "Cell" ]
 sort_enabled = true
 _sections_unfolded = [ "Sort" ]
 
-[node name="PlayerSpawningPoint" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Dummy" parent="YSort" index="0" instance=ExtResource( 3 )]
 
+position = Vector2( 1030, 590 )
+
+[node name="Skeleton" parent="YSort" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 690, 100 )
+
+[node name="Skeleton2" parent="YSort" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 590, 600 )
+
+[node name="PlayerSpawningPoint" parent="." index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 110, 140 )
 script = SubResource( 1 )
 LINE_COLOR = Color( 0.784739, 0.16983, 0.820312, 1 )
 
-[node name="TransparentDoor" parent="." index="3" instance=ExtResource( 4 )]
+[node name="TransparentDoor" parent="." index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 1230, 380 )
 map_path = "res://levels/Test.tscn"

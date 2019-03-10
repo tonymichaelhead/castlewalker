@@ -18,7 +18,7 @@ export(String) var weapon_scene_path = ''
 var weapon = null
 
 
-func _ready():
+func initialize(target_actor):
 	_change_state(IDLE)
 	$Health.connect('health_changed', self, '_on_Health_health_changed')
 

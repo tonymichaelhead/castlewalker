@@ -13,14 +13,15 @@ func initialize(player):
 #	$PauseMenu.initialize(player) TODO: Implement pause menu script
 
 
-func _on_Level_loaded(level):
+func _on_LevelLoader_loaded(level):
 	var tree = get_tree()
 	for seller in tree.get_nodes_in_group('seller'):
 		seller.connect('shop_open_requested', self, 'shop_open')
 		
 	var monsters = tree.get_nodes_in_group('monster') # TODO make sure monsters are added
 	var spawners = tree.get_nodes_in_group('monster_spawner') # TODO make sure spawners are added to group
-	$LifebarBuilder.initialize()
+	
+	$LifebarBuilder.initialize(monsters, spawners)
 	
 	
 func shop_open(seller_shop, buyer):
