@@ -15,6 +15,8 @@ func on_MonsterSpawner_spawned_monster(monster_node):
 
 
 func create_lifebar(actor):	
+	if not actor.has_node('InterfaceHook'):
+		return
 	var lifebar = Lifebar.instance()
-	add_child(lifebar)
+	actor.add_child(lifebar)
 	lifebar.initialize(actor)

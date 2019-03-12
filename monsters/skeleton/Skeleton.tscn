@@ -1180,9 +1180,9 @@ tracks/6/keys = {
 "values": [ 4, 6 ]
 }
 
-[node name="Skeleton" type="KinematicBody2D" groups=[
-"actor",
+[node name="Skeleton" type="KinematicBody2D" index="0" groups=[
 "monster",
+"actor",
 ]]
 
 input_pickable = false
@@ -1244,6 +1244,9 @@ script = ExtResource( 2 )
 max_health = 5
 
 [node name="InterfaceHook" parent="." index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 0, -94 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="5"]
 

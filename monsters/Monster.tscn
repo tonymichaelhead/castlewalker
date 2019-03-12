@@ -1180,8 +1180,8 @@ tracks/6/keys = {
 }
 
 [node name="SteeringMonster" type="KinematicBody2D" groups=[
-"actor",
 "monster",
+"actor",
 ]]
 
 input_pickable = false
@@ -1233,6 +1233,9 @@ script = ExtResource( 1 )
 max_health = 5
 
 [node name="InterfaceHook" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 0, -94 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="5"]
 
