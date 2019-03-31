@@ -1,0 +1,161 @@
+body {
+  background-color: #f2ead8;
+}
+
+.hero {
+  height: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #aff1fd;
+}
+
+.hero h1 {
+  text-transform: uppercase;
+}
+
+.navbar-wrapper {
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3; 
+}
+
+.navbar {
+  max-width: 900px;
+  list-style-type: none;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.navbar .navbar__item {
+  display: inline-block; 
+}
+
+.navbar .navbar__item a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar .navbar__item a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.navbar .navbar__item a.active {
+  color: white;
+  background-color: #4CAF50;
+}
+
+/* Main Section */
+
+.main-wrapper {
+  display: flex;
+  margin: 1rem;
+}
+
+.main-wrapper__content {
+  width: 66.666%;
+}
+
+.main-wrapper__content p {
+  margin-top: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.main-wrapper__buttons {
+  width: 33.333%;
+}
+
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.specs {
+    background-color: #e7d9c0;
+    border: 1px solid #e1ceb2;
+}
+
+/* Typography */
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Buttons */
+.btn-call {
+  width: 18rem;
+  height: 5rem;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.btn-call--blue {
+    background-color: #06202e;
+    color: #bcb088;
+}
+
+.btn-call--grey {
+    background-color: #252a35;
+    color: #dddddd;
+}
+
+/* Carasol Placeholder */
+
+.carasol {
+    height: 33rem;
+}
+
+.carasol .carasol__content {
+    height: 75%;
+    background-color: #e5d7bd; 
+    border-radius: 8px 8px 0 0;
+}
+
+.carasol .carasol__nav {
+    background-color: #d9c09d;
+    height: 8rem; 
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.carasol .carasol__thumbnail {
+    width: 15%;
+    background-color: #6a431f;
+    margin: 1rem;
+}
+
+.builds-list {
+    display: flex;
+    justify-content: center;
+}
+
+.builds-list__item {
+    display: inline-block;
+    width: 6rem;
+    margin: 12px;
+    text-align: center;
+}
+
+.builds-list .builds-list__icon {
+    font-size: 5.5rem;
+}
+
+.builds-list__item a {
+    font-weight: bold;
+}
+
+.builds-list__item span {
+    display: block;
+}
